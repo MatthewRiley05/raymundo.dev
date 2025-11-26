@@ -1,4 +1,4 @@
-import DitherBackground from '@/components/dither_background';
+import DitherBackground from '@/components/DitherBackground';
 
 export default function Home() {
   return (
