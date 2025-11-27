@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import Dither from '@/components/ui/Dither';
 
