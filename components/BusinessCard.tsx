@@ -33,8 +33,8 @@ export default function BusinessCard() {
                     <Image
                         src="/matthewinspire.jpg"
                         alt="Matthew Riley Chun Raymundo"
-                        width={128}
-                        height={128}
+                        width={256}
+                        height={256}
                         className="rounded-md object-cover w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36"
                     />
 
@@ -103,7 +103,7 @@ export default function BusinessCard() {
                     </p>
                 </CardContent>
 
-                <CardFooter className="flex w-full items-center justify-between !py-2 xl:!py-6 border-t border-border/60 text-[9px] sm:text-[10px] md:text-[10px] lg:text-[11px] xl:text-[11px] 2xl:text-[12px] px-6 sm:px-7 md:px-8 lg:px-9 xl:px-10 2xl:px-11">
+                <CardFooter className="flex w-full items-center justify-between !py-2 xl:!py-6 2xl:!py-10 border-t border-border/60 text-[9px] sm:text-[10px] md:text-[10px] lg:text-[11px] xl:text-[11px] 2xl:text-[12px] px-6 sm:px-7 md:px-8 lg:px-9 xl:px-10 2xl:px-11">
                     <p className="font-mono uppercase tracking-[0.28em] text-muted-foreground">
                         Matthew Raymundo
                     </p>
