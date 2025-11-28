@@ -69,11 +69,27 @@ export default function BusinessCard() {
                     </span>
 
                     <p className="text-[11px] sm:text-xs md:text-sm text-muted-foreground lg:hidden">
-                        BSc (Hons) Fintech &amp; AI @ HK PolyU
+                        BSc (Hons) Fintech &amp; AI @ {' '}
+                        <a
+                            href="https://www.polyu.edu.hk/en/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium underline"
+                        >
+                            HK PolyU
+                        </a>
                     </p>
 
                     <p className="text-[11px] sm:text-xs md:text-sm text-muted-foreground hidden lg:block">
-                        BSc (Hons) Financial Technology &amp; Artificial Intelligence @ The Hong Kong Polytechnic University
+                        BSc (Hons) Financial Technology &amp; Artificial Intelligence @ {' '}
+                        <a
+                            href="https://www.polyu.edu.hk/en/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium underline"
+                        >
+                            The Hong Kong Polytechnic University
+                        </a>
                     </p>
 
                     <HyperText
@@ -82,7 +98,7 @@ export default function BusinessCard() {
                         HKG ⇄ MNL
                     </HyperText>
 
-                    <p className="text-[11px] sm:text-xs md:text-sm">
+                    <p className="text-[11px] sm:text-xs md:text-sm text-muted-foreground">
                         <span className="font-medium">Now:</span> Building a digital service marketplace for Filipinos @{' '}
                         <a
                             href="https://hanapp.com.ph/"
@@ -97,9 +113,14 @@ export default function BusinessCard() {
                 </CardContent>
 
                 <CardFooter
-                    className="flex items-center justify-between gap-2 text-[10px] sm:text-xs md:text-xs lg:text-sm xl:text-sm 2xl:text-base px-6 sm:px-7 md:px-8 lg:px-9 xl:px-10 2xl:px-11"
+                    className="flex w-full items-center justify-between !py-2 xl:!py-6 border-t border-border/60 text-[9px] sm:text-[10px] md:text-[10px] lg:text-[11px] xl:text-[11px] 2xl:text-[12px] px-6 sm:px-7 md:px-8 lg:px-9 xl:px-10 2xl:px-11"
                 >
-                    <p className="text-muted-foreground">Open to SWE internships, part-time roles, and collabs.</p>
+                    <p className="font-mono uppercase tracking-[0.28em] text-muted-foreground">
+                        Matthew Raymundo
+                    </p>
+                    <p className="text-muted-foreground">
+                        v2025.12 · next.js / react
+                    </p>
                 </CardFooter>
 
             </Card>
