@@ -2,12 +2,16 @@
 
 import Tilt from "react-parallax-tilt"
 import { useState } from "react"
-import { CARDS } from "./cards/registry"
+import { CARDS } from "@/components/cards/registry"
+import FlippableCard from "./stack/FlippableCard"
 
 export default function BusinessCard() {
     const [scale] = useState(1.05)
+    const [flipped, setFlipped] = useState(false)
 
-    const HomeFront = CARDS[0].Front
+    const active = CARDS[0]
+    const Front = active.Front
+    const Back = active.Back
 
     return (
         <Tilt
@@ -19,7 +23,17 @@ export default function BusinessCard() {
             tiltMaxAngleY={10}
             className="w-full max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl aspect-[1.75] flex items-center justify-center pointer-events-auto cursor-default"
         >
-            <HomeFront />
+            {Back ? (
+                <FlippableCard
+                    flipped={flipped}
+                    onToggle={() => setFlipped((v) => !v)}
+                    front={<Front />}
+                    back={<Back />}
+                    className="w-full h-full"
+                />
+            ) : (
+                <Front />
+            )}
         </Tilt>
     )
 }
