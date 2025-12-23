@@ -11,29 +11,14 @@ import {
     useDragControls,
 } from "framer-motion"
 
-type Swiped = {
-    card: StackCard
-    dir: 1 | -1
-    fromX: number
-}
+type Swiped = { card: StackCard; dir: 1 | -1; fromX: number }
 
-// Apple-ish easing (gentle accel, long settle, no bounce)
-const EASE_APPLE: [number, number, number, number] = [0.16, 1, 0.3, 1]
-
-// Deck re-stack: slower + calm (no physics)
-const DECK_TWEEN = { type: "tween" as const, duration: 0.42, ease: EASE_APPLE }
-
-// Snap-back (when swipe not committed): slow-ish but responsive, critically damped
+const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
+const DECK_TWEEN = { type: "tween" as const, duration: 0.42, ease: EASE }
 const SNAP_BACK = { type: "spring" as const, stiffness: 420, damping: 44, mass: 1.0, bounce: 0 }
-
-// Overlay exit/enter: slower than before (premium)
-const EXIT_TWEEN = { type: "tween" as const, duration: 0.40, ease: EASE_APPLE }
-const ENTER_TWEEN = { type: "tween" as const, duration: 0.52, ease: EASE_APPLE }
-
-// Gesture tuning
-const SWIPE_OFFSET_PX = 140
-const SWIPE_VELOCITY = 900
-const TAP_MOVE_GUARD_PX = 10
+const EXIT_TWEEN = { type: "tween" as const, duration: 0.40, ease: EASE }
+const ENTER_TWEEN = { type: "tween" as const, duration: 0.52, ease: EASE }
+const SWIPE_OFFSET_PX = 140, SWIPE_VELOCITY = 900, TAP_MOVE_GUARD_PX = 10
 
 export default function CardStack({
     cards,
@@ -44,19 +29,12 @@ export default function CardStack({
 }) {
     const [order, setOrder] = useState<StackCard[]>(cards)
     const [flipped, setFlipped] = useState(false)
-
     const [isDragging, setIsDragging] = useState(false)
     const [swiped, setSwiped] = useState<Swiped | null>(null)
     const [stage, setStage] = useState<"exit" | "enter" | null>(null)
-
-    // Freeze deck transitions for 1 frame after commit (prevents any micro-settle)
     const [freezeDeck, setFreezeDeck] = useState(false)
-
-    // Tap vs drag guard
     const movedRef = useRef(false)
     const startPtRef = useRef<{ x: number; y: number } | null>(null)
-
-    // Measure frame width for swipe distance
     const containerRef = useRef<HTMLDivElement>(null)
     const [frameW, setFrameW] = useState(1000)
 
@@ -73,18 +51,9 @@ export default function CardStack({
     }, [])
 
     const visible = useMemo(() => order.slice(0, maxVisible), [order, maxVisible])
-
-    // Deck look
-    const PEEK_Y = 18
-    const PEEK_X = 2
-    const SCALE_STEP = 0.01
-    const OPACITY_STEP = 0.08
-
-    // Top card motion
+    const PEEK_Y = 18, PEEK_X = 2, SCALE_STEP = 0.01, OPACITY_STEP = 0.08
     const x = useMotionValue(0)
     const rotate = useTransform(x, [-220, 0, 220], [-10, 0, 10])
-
-    // Keep swipe close to the frame (within/near)
     const SWIPE_X = Math.max(240, frameW * 0.58)
 
     const dragControls = useDragControls()
@@ -121,7 +90,6 @@ export default function CardStack({
         requestAnimationFrame(() => setFreezeDeck(false))
     }
 
-    // Bottom slot placement for enter overlay
     const visibleLen = Math.min(maxVisible, order.length)
     const targetIndex = Math.min(maxVisible - 1, visibleLen)
     const targetY = targetIndex * PEEK_Y
@@ -132,7 +100,6 @@ export default function CardStack({
 
     return (
         <div ref={containerRef} className="relative w-full h-full overflow-visible">
-            {/* Deck */}
             {visible
                 .map((card, index) => {
                     const isTop = index === 0
@@ -224,7 +191,6 @@ export default function CardStack({
                 })
                 .reverse()}
 
-            {/* Overlay exit */}
             {swiped && stage === "exit"
                 ? (() => {
                     const SwipeFront = swiped.card.Front
@@ -254,7 +220,6 @@ export default function CardStack({
                 })()
                 : null}
 
-            {/* Overlay enter (from side into bottom slot) */}
             {swiped && stage === "enter"
                 ? (() => {
                     const SwipeFront = swiped.card.Front

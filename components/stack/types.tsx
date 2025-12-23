@@ -1,7 +1,3 @@
-import type { ComponentType } from "react";
+import type { ComponentType } from "react"
 
-export type StackCard = {
-    id: string;
-    Front: ComponentType;
-    Back?: ComponentType;
-}
+export type StackCard = { id: string; Front: ComponentType; Back?: ComponentType }
