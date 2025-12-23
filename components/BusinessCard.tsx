@@ -5,18 +5,18 @@ import { useState } from "react"
 import { CARDS } from "@/components/cards/registry"
 import FlippableCard from "./stack/FlippableCard"
 
+const TILT_SCALE = 1.05
+
 export default function BusinessCard() {
-    const [scale] = useState(1.05)
     const [flipped, setFlipped] = useState(false)
 
     const active = CARDS[0]
-    const Front = active.Front
-    const Back = active.Back
+    const { Front, Back } = active
 
     return (
         <Tilt
             tiltReverse
-            scale={scale}
+            scale={TILT_SCALE}
             transitionSpeed={3000}
             perspective={10000}
             tiltMaxAngleX={10}

@@ -4,7 +4,7 @@ import Dither from '@/components/ui/Dither';
 
 export default function DitherBackground() {
     return (
-        <div style={{ width: '100%', height: '100%', position: 'absolute', inset: 0 }}>
+        <div className="absolute inset-0 w-full h-full">
             <Dither
                 waveColor={[0.5, 0.5, 0.5]}
                 disableAnimation={false}

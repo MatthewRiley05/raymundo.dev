@@ -3,7 +3,7 @@
 import type { ReactNode } from "react"
 import { CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import CardShell from "@/components/stack/CardShell"
-import { CARD_PX, CARD_TEXT_META } from "@/components/stack/cardSpacing"
+import { CARD_PX, CARD_TEXT_META, CARD_FOOTER } from "@/components/stack/cardSpacing"
 import { cn } from "@/lib/utils"
 
 type Props = {
@@ -38,7 +38,8 @@ export default function SimpleCardLayout({
                     className={cn(
                         CARD_PX,
                         CARD_TEXT_META,
-                        "border-t border-border/60 flex w-full items-center justify-between !py-2 xl:!py-6 2xl:!py-10 text-muted-foreground"
+                        CARD_FOOTER,
+                        "text-muted-foreground"
                     )}
                 >
                     <div>{bottomLeft}</div>
