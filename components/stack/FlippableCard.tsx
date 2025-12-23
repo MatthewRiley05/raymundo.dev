@@ -20,7 +20,6 @@ type Props = {
     enabled?: boolean
 }
 
-
 export default function FlippableCard({
     flipped,
     onToggle,
@@ -82,27 +81,19 @@ export default function FlippableCard({
                 }}
                 className="relative w-full h-full"
             >
-                <div className="absolute inset-0 [backface-visibility:hidden]">
+                <div className="absolute inset-0 [backface-visibility:hidden]" style={{ pointerEvents: flipped ? "none" : "auto" }}>
                     <div className="relative w-full h-full overflow-hidden rounded-xl">
                         {front}
-
-                        <motion.div
-                            style={{ x: shineX, opacity: frontShineOpacity }}
-                            className="pointer-events-none absolute inset-0 z-50 mix-blend-screen"
-                        >
+                        <motion.div style={{ x: shineX, opacity: frontShineOpacity }} className="pointer-events-none absolute inset-0 z-50 mix-blend-screen">
                             <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent,rgba(255,255,255,0.42),rgba(255,255,255,0.14),transparent)]" />
                         </motion.div>
                     </div>
                 </div>
 
-                <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]" style={{ pointerEvents: flipped ? "auto" : "none" }}>
                     <div className="relative w-full h-full overflow-hidden rounded-xl">
                         {back}
-
-                        <motion.div
-                            style={{ x: shineX, opacity: backShineOpacity }}
-                            className="pointer-events-none absolute inset-0 z-50 mix-blend-screen"
-                        >
+                        <motion.div style={{ x: shineX, opacity: backShineOpacity }} className="pointer-events-none absolute inset-0 z-50 mix-blend-screen">
                             <div className="absolute inset-0 bg-[linear-gradient(110deg,transparent,rgba(255,255,255,0.38),rgba(255,255,255,0.12),transparent)]" />
                         </motion.div>
                     </div>

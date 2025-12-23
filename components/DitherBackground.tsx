@@ -1,6 +1,6 @@
 "use client"
 
-import Dither from '@/components/ui/Dither';
+import Dither from '@/components/ui/Dither'
 
 export default function DitherBackground() {
     return (
@@ -16,5 +16,5 @@ export default function DitherBackground() {
                 waveSpeed={0.01}
             />
         </div>
-    );
+    )
 }

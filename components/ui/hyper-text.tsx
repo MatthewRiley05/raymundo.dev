@@ -2,32 +2,21 @@
 
 import { useEffect, useRef, useState } from "react"
 import { AnimatePresence, motion, MotionProps } from "motion/react"
-
 import { cn } from "@/lib/utils"
 
 type CharacterSet = string[] | readonly string[]
 
 interface HyperTextProps extends Omit<MotionProps, 'children'> {
-  /** The text content to be animated */
   children: string
-  /** Optional className for styling */
   className?: string
-  /** Duration of the animation in milliseconds */
   duration?: number
-  /** Delay before animation starts in milliseconds */
   delay?: number
-  /** Whether to start animation when element comes into view */
   startOnView?: boolean
-  /** Whether to trigger animation on hover */
   animateOnHover?: boolean
-  /** Custom character set for scramble effect. Defaults to uppercase alphabet */
   characterSet?: CharacterSet
 }
 
-const DEFAULT_CHARACTER_SET = Object.freeze(
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
-) as readonly string[]
-
+const DEFAULT_CHARACTER_SET = Object.freeze("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")) as readonly string[]
 const getRandomInt = (max: number): number => Math.floor(Math.random() * max)
 
 export function HyperText({

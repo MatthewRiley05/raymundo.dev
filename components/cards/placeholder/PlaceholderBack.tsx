@@ -7,7 +7,11 @@ export default function PlaceholderBack() {
         <SimpleCardLayout
             title="Project 1 · Details"
             body={<p>Back of the placeholder card.</p>}
-            bottomLeft={<span className="font-mono uppercase tracking-[0.28em]">Next</span>}
+            bottomLeft={
+                <span className="font-mono uppercase tracking-[0.28em]">
+                    Next
+                </span>
+            }
             bottomRight={<span>Back</span>}
         />
     )

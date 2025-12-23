@@ -265,7 +265,6 @@ function DitheredWaves({
         <shaderMaterial
           vertexShader={waveVertexShader}
           fragmentShader={waveFragmentShader}
-          // eslint-disable-next-line react-hooks/refs -- Intentional: Three.js shader uniforms require direct ref access for initial setup
           uniforms={waveUniformsRef.current}
         />
       </mesh>
