@@ -79,7 +79,7 @@ export default function FlippableCard({
                     transformStyle: "preserve-3d",
                     willChange: "transform",
                 }}
-                className="relative w-full h-full"
+                className="relative w-full h-full rounded-xl"
             >
                 <div className="absolute inset-0 [backface-visibility:hidden]" style={{ pointerEvents: flipped ? "none" : "auto" }}>
                     <div className="relative w-full h-full overflow-hidden rounded-xl">
