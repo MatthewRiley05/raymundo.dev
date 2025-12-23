@@ -6,7 +6,13 @@ import CardShell from "@/components/stack/CardShell"
 import { CARD_PX, CARD_TEXT_META, CARD_FOOTER } from "@/components/stack/cardSpacing"
 import { cn } from "@/lib/utils"
 
-type Props = { title: string; body: ReactNode; bottomLeft?: ReactNode; bottomRight?: ReactNode; className?: string }
+type Props = {
+    title: string
+    body: ReactNode
+    bottomLeft?: ReactNode
+    bottomRight?: ReactNode
+    className?: string
+}
 
 export default function SimpleCardLayout({ title, body, bottomLeft, bottomRight, className }: Props) {
     return (
