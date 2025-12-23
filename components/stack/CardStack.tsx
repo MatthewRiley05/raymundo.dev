@@ -144,6 +144,16 @@ export default function CardStack({
                                 const dy = Math.abs(e.clientY - s.y)
                                 if (dx > TAP_MOVE_GUARD_PX || dy > TAP_MOVE_GUARD_PX) movedRef.current = true
                             }}
+                            onPointerUp={() => {
+                                startPtRef.current = null
+                            }}
+                            onPointerCancel={() => {
+                                startPtRef.current = null
+                                movedRef.current = false
+                            }}
+                            onLostPointerCapture={() => {
+                                startPtRef.current = null
+                            }}
                             onDragStart={() => setIsDragging(true)}
                             onDragEnd={(_, info) => {
                                 setIsDragging(false)
