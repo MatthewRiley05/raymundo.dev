@@ -17,9 +17,18 @@ type Props = {
     front: React.ReactNode
     back: React.ReactNode
     className?: string
+    enabled?: boolean
 }
 
-export default function FlippableCard({ flipped, onToggle, front, back, className }: Props) {
+
+export default function FlippableCard({
+    flipped,
+    onToggle,
+    front,
+    back,
+    className,
+    enabled = true,
+}: Props) {
     const rot = useMotionValue(0)
 
     const lift = useTransform(rot, [0, 90, 180], [0, -16, 0])
@@ -49,10 +58,12 @@ export default function FlippableCard({ flipped, onToggle, front, back, classNam
             tabIndex={0}
             aria-pressed={flipped}
             onClick={(e) => {
+                if (!enabled) return
                 if (isInteractiveTarget(e.target)) return
                 onToggle()
             }}
             onKeyDown={(e) => {
+                if (!enabled) return
                 if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault()
                     onToggle()
