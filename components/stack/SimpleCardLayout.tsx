@@ -1,39 +1,50 @@
 "use client"
 
+import type { ReactNode } from "react"
+import { CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import CardShell from "@/components/stack/CardShell"
+import { CARD_PX, CARD_TEXT_META } from "@/components/stack/cardSpacing"
 import { cn } from "@/lib/utils"
 
 type Props = {
     title: string
-    body: React.ReactNode
-    bottom?: React.ReactNode
+    body: ReactNode
+    bottomLeft?: ReactNode
+    bottomRight?: ReactNode
     className?: string
 }
 
-export default function SimpleCardLayout({ title, body, bottom, className }: Props) {
+export default function SimpleCardLayout({
+    title,
+    body,
+    bottomLeft,
+    bottomRight,
+    className,
+}: Props) {
     return (
-        <CardShell
-            className={className}
-            header={
-                <div className="px-6 pt-4 sm:px-7 sm:pt-5 md:px-8 md:pt-6 lg:px-9 xl:px-10 2xl:px-11">
-                    <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl leading-tight">{title}</h3>
-                </div>
-            }
-            footer={
-                bottom ? (
-                    <div className={cn(
-                        "w-full border-t border-border/60",
-                        "px-6 py-3 sm:px-7 md:px-8 lg:px-9 xl:px-10 2xl:px-11",
-                        "text-xs text-muted-foreground"
-                    )}>
-                        {bottom}
-                    </div>
-                ) : null
-            }
-        >
-            <div className="px-6 sm:px-7 md:px-8 lg:px-9 xl:px-10 2xl:px-11 py-4 text-sm text-muted-foreground">
+        <CardShell className={className}>
+            <CardHeader className={cn(CARD_PX, "pt-4 sm:pt-5 md:pt-6")}>
+                <CardTitle className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
+                    {title}
+                </CardTitle>
+            </CardHeader>
+
+            <CardContent className={cn(CARD_PX, "text-[11px] sm:text-xs md:text-sm text-muted-foreground")}>
                 {body}
-            </div>
+            </CardContent>
+
+            {(bottomLeft || bottomRight) && (
+                <CardFooter
+                    className={cn(
+                        CARD_PX,
+                        CARD_TEXT_META,
+                        "border-t border-border/60 flex w-full items-center justify-between !py-2 xl:!py-6 2xl:!py-10 text-muted-foreground"
+                    )}
+                >
+                    <div>{bottomLeft}</div>
+                    <div>{bottomRight}</div>
+                </CardFooter>
+            )}
         </CardShell>
     )
 }
