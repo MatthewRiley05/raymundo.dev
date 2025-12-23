@@ -22,7 +22,14 @@ export default function SimpleCardLayout({ title, body, bottomLeft, bottomRight,
             </CardHeader>
             <CardContent className={cn(CARD_PX, "text-[11px] sm:text-xs md:text-sm text-muted-foreground")}>{body}</CardContent>
             {(bottomLeft || bottomRight) && (
-                <CardFooter className={cn(CARD_PX, CARD_TEXT_META, CARD_FOOTER, "text-muted-foreground")}>
+                <CardFooter
+                    className={cn(
+                        CARD_PX,
+                        CARD_TEXT_META,
+                        CARD_FOOTER,
+                        "text-muted-foreground",
+                    )}
+                >
                     <div>{bottomLeft}</div>
                     <div>{bottomRight}</div>
                 </CardFooter>
