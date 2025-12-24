@@ -14,7 +14,7 @@ import { HyperText } from "@/components/ui/hyper-text"
 
 export default function HomeCardFront() {
     return (
-        <Card className="w-full h-full border border-border/60 bg-background/90 gap-2 sm:gap-4 md:gap-4 lg:gap-5 xl:gap-6 2xl:gap-7">
+        <Card className="w-full h-full border border-border/60 bg-background/95 gap-2 sm:gap-4 md:gap-4 lg:gap-5 xl:gap-6 2xl:gap-7">
             <CardHeader className="flex flex-row items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8 px-6 pt-0 sm:px-7 sm:pt-1 md:px-8 md:pt-2 lg:px-9 lg:pt-3 xl:px-10 xl:pt-4 2xl:px-11 2xl:pt-5">
                 <Image
                     src="/matthewinspire.jpg"
