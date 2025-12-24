@@ -32,13 +32,6 @@ export default function HomeCardBack() {
                             </li>
                         </ul>
                     </div>
-
-                    <div>
-                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground/80 text-[10px] sm:text-[11px]">
-                            Location
-                        </div>
-                        <div>HKG ⇄ MNL</div>
-                    </div>
                 </div>
             }
             bottomLeft={<span className="font-mono uppercase tracking-[0.28em]">Matthew Raymundo</span>}

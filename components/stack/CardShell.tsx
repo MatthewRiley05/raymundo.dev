@@ -4,5 +4,5 @@ import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 
 export default function CardShell({ children, className }: { children: React.ReactNode; className?: string }) {
-    return <Card className={cn("w-full h-full border border-border/60 bg-background/90 gap-0 py-0", className)}>{children}</Card>
+    return <Card className={cn("w-full h-full py-0 border border-border/60 bg-background/90 gap-2 sm:gap-4 md:gap-4 lg:gap-5 xl:gap-6 2xl:gap-7", className)}>{children}</Card>
 }
