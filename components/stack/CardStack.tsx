@@ -123,7 +123,7 @@ export default function CardStack({
                                 rotate: isTop ? rotate : 0,
                                 touchAction: "pan-y",
                             }}
-                            initial={false}
+                            initial={{ y, scale, opacity }}
                             animate={{ y, scale, opacity }}
                             transition={freezeDeck ? { duration: 0 } : DECK_TWEEN}
                             drag={isTop && !flipped && !interactionLocked ? "x" : false}

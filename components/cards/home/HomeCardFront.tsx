@@ -52,7 +52,7 @@ export default function HomeCardFront() {
                         href="https://www.polyu.edu.hk/en/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-medium underline"
+                        className="font-medium underline hover:text-foreground/80"
                     >
                         HK PolyU
                     </a>
@@ -64,7 +64,7 @@ export default function HomeCardFront() {
                         href="https://www.polyu.edu.hk/en/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-medium underline"
+                        className="font-medium underline hover:text-foreground/80"
                     >
                         The Hong Kong Polytechnic University
                     </a>
@@ -81,7 +81,7 @@ export default function HomeCardFront() {
                         href="https://hanapp.com.ph/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-medium underline"
+                        className="font-medium underline hover:text-foreground/80"
                     >
                         Hanapp
                     </a>

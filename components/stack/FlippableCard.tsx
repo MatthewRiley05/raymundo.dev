@@ -30,7 +30,6 @@ export default function FlippableCard({
 }: Props) {
     const rot = useMotionValue(0)
 
-    const lift = useTransform(rot, [0, 90, 180], [0, -16, 0])
     const scale = useTransform(rot, [0, 90, 180], [1, 1.02, 1])
     const shadow = useTransform(rot, [0, 90, 180], [
         "0 12px 30px rgba(0,0,0,0.28)",
@@ -73,7 +72,6 @@ export default function FlippableCard({
             <motion.div
                 style={{
                     rotateY: rot,
-                    y: lift,
                     scale,
                     boxShadow: shadow,
                     transformStyle: "preserve-3d",
