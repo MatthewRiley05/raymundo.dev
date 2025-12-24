@@ -12,7 +12,9 @@ export default function HomeCardBack() {
                         <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground/80 text-[10px] sm:text-[11px]">
                             Email
                         </div>
-                        <div className="text-foreground font-medium">matthew@example.com</div>
+                        <a href="mailto:matthewrileyraymundo@gmail.com" className="text-muted-foreground font-medium underline hover:text-foreground/80">
+                            matthewrileyraymundo@gmail.com
+                        </a>
                     </div>
 
                     <div>
