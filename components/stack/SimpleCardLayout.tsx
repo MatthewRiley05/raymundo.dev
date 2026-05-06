@@ -17,10 +17,10 @@ type Props = {
 export default function SimpleCardLayout({ title, body, bottomLeft, bottomRight, className }: Props) {
     return (
         <CardShell className={className}>
-            <CardHeader className={cn(CARD_PX, "pt-4 sm:pt-5 md:pt-6")}>
+            <CardHeader className={cn(CARD_PX, "items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8 px-6 pt-0 sm:px-7 sm:pt-1 md:px-8 md:pt-2 lg:px-9 lg:pt-3 xl:px-10 xl:pt-4 2xl:px-11 2xl:pt-5")}>
                 <CardTitle className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">{title}</CardTitle>
             </CardHeader>
-            <CardContent className={cn(CARD_PX, "flex-grow text-[11px] sm:text-xs md:text-sm text-muted-foreground")}>{body}</CardContent>
+            <CardContent className={cn(CARD_PX, "flex-grow text-xs sm:text-sm md:text-sm lg:text-base xl:text-base 2xl:text-lg px-6 sm:px-7 md:px-8 lg:px-9 xl:px-10 2xl:px-11 flex flex-col gap-2 sm:gap-4 md:gap-4 lg:gap-5 xl:gap-6 2xl:gap-7")}>{body}</CardContent>
             {(bottomLeft || bottomRight) && (
                 <CardFooter
                     className={cn(

@@ -14,14 +14,14 @@ import { HyperText } from "@/components/ui/hyper-text"
 
 export default function HomeCardFront() {
     return (
-        <Card className="w-full h-full border border-border/60 bg-background/90 gap-2 sm:gap-4 md:gap-4 lg:gap-5 xl:gap-6 2xl:gap-7">
+        <Card className="w-full h-full border border-border/60 bg-background/95 gap-2 sm:gap-4 md:gap-4 lg:gap-5 xl:gap-6 2xl:gap-7">
             <CardHeader className="flex flex-row items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8 px-6 pt-0 sm:px-7 sm:pt-1 md:px-8 md:pt-2 lg:px-9 lg:pt-3 xl:px-10 xl:pt-4 2xl:px-11 2xl:pt-5">
                 <Image
                     src="/matthewinspire.jpg"
                     alt="Matthew Riley Chun Raymundo"
                     width={256}
                     height={256}
-                    className="rounded-md object-cover w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36"
+                    className="rounded-md object-cover w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36 loading='lazy' fetchpriority='high'"
                 />
 
                 <div className="flex flex-col gap-1 text-left">
@@ -52,7 +52,7 @@ export default function HomeCardFront() {
                         href="https://www.polyu.edu.hk/en/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-medium underline"
+                        className="font-medium underline hover:text-foreground/80"
                     >
                         HK PolyU
                     </a>
@@ -64,7 +64,7 @@ export default function HomeCardFront() {
                         href="https://www.polyu.edu.hk/en/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-medium underline"
+                        className="font-medium underline hover:text-foreground/80"
                     >
                         The Hong Kong Polytechnic University
                     </a>
@@ -81,7 +81,7 @@ export default function HomeCardFront() {
                         href="https://hanapp.com.ph/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-medium underline"
+                        className="font-medium underline hover:text-foreground/80"
                     >
                         Hanapp
                     </a>
