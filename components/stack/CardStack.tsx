@@ -51,7 +51,7 @@ export default function CardStack({
     }, [])
 
     const visible = useMemo(() => order.slice(0, maxVisible), [order, maxVisible])
-    const PEEK_Y = 18, PEEK_X = 2, SCALE_STEP = 0.01, OPACITY_STEP = 0.08
+    const PEEK_Y = 18, PEEK_X = 0, SCALE_STEP = 0.01, OPACITY_STEP = 0.08
     const x = useMotionValue(0)
     const rotate = useTransform(x, [-220, 0, 220], [-10, 0, 10])
     const SWIPE_X = Math.max(240, frameW * 0.58)
