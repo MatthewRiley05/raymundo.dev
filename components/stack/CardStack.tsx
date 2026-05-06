@@ -91,7 +91,7 @@ export default function CardStack({
     }
 
     const visibleLen = Math.min(maxVisible, order.length)
-    const targetIndex = Math.min(maxVisible - 1, visibleLen)
+    const targetIndex = visibleLen
     const targetY = targetIndex * PEEK_Y
     const targetXOffset = targetIndex * PEEK_X
     const targetScale = 1 - targetIndex * SCALE_STEP
