@@ -93,7 +93,7 @@ export default function HomeCardFront() {
                 <p className="font-mono uppercase tracking-[0.28em] text-muted-foreground">
                     Matthew Raymundo
                 </p>
-                <p className="text-muted-foreground">v2025.12 · next.js / react</p>
+                <p className="text-muted-foreground">v2026.05 · next.js / react</p>
             </CardFooter>
         </Card>
     )
