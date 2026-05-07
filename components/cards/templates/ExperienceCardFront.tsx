@@ -2,6 +2,7 @@
 
 import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
 import { Badge } from "@/components/ui/badge"
+import { TEXT_SIZE } from "@/components/stack/cardSpacing"
 
 type Props = {
     title: string
@@ -18,16 +19,16 @@ export default function ExperienceCardFront({ title, subtitle, date, location, t
             title={title}
             body={
                 <div className="space-y-3">
-                    <div className="text-[11px] sm:text-xs md:text-sm text-muted-foreground font-medium">
+                    <div className={TEXT_SIZE.meta + " font-medium"}>
                         {subtitle}
                     </div>
-                    <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[10px] sm:text-[11px]">
+                    <div className={"font-mono uppercase tracking-[0.22em] text-muted-foreground " + TEXT_SIZE.small}>
                         {date}{location ? ` | ${location}` : ""}
                     </div>
                     {tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 pt-1">
                             {tags.map((tag) => (
-                                <Badge key={tag} variant="secondary" className="text-[10px] sm:text-[11px]">
+                                <Badge key={tag} variant="secondary" className={TEXT_SIZE.small}>
                                     {tag}
                                 </Badge>
                             ))}
