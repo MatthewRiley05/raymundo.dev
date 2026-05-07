@@ -1,5 +1,6 @@
 import BusinessCard from '@/components/BusinessCard';
 import DitherBackground from '@/components/DitherBackground';
+import DockNavigation from '@/components/DockNavigation';
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         <div className="absolute inset-0 flex items-center justify-center h-full pointer-events-none">
           <BusinessCard />
         </div>
+        <DockNavigation />
       </div>
     </div>
   );
