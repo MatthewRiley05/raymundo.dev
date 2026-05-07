@@ -23,9 +23,13 @@ const SWIPE_OFFSET_PX = 140, SWIPE_VELOCITY = 900, TAP_MOVE_GUARD_PX = 10
 export default function CardStack({
     cards,
     maxVisible = 5,
+    activeIndex,
+    onActiveIndexChange,
 }: {
     cards: StackCard[]
     maxVisible?: number
+    activeIndex?: number
+    onActiveIndexChange?: (index: number) => void
 }) {
     const [order, setOrder] = useState<StackCard[]>(cards)
     const [flipped, setFlipped] = useState(false)
@@ -37,8 +41,44 @@ export default function CardStack({
     const startPtRef = useRef<{ x: number; y: number } | null>(null)
     const containerRef = useRef<HTMLDivElement>(null)
     const [frameW, setFrameW] = useState(1000)
+    const prevActiveIndex = useRef<number | undefined>(undefined)
 
     useEffect(() => setOrder(cards), [cards])
+
+    // Listen for dock navigation events from DockNavigation component
+    useEffect(() => {
+        const handleDockNavigate = (e: CustomEvent<{ index: number }>) => {
+            const index = e.detail.index
+            const targetCard = cards[index]
+            if (!targetCard) return
+            
+            setOrder((prev) => {
+                const without = prev.filter((c) => c.id !== targetCard.id)
+                return [targetCard, ...without]
+            })
+            setFlipped(false)
+        }
+        
+        window.addEventListener('dockNavigate', handleDockNavigate as EventListener)
+        return () => window.removeEventListener('dockNavigate', handleDockNavigate as EventListener)
+    }, [cards])
+
+    // Handle external activeIndex changes from dock navigation
+    useEffect(() => {
+        if (activeIndex === undefined || activeIndex === prevActiveIndex.current) return
+        prevActiveIndex.current = activeIndex
+
+        const targetCard = cards[activeIndex]
+        if (!targetCard) return
+
+        // Move the target card to the front of the stack
+        setOrder((prev) => {
+            const without = prev.filter((c) => c.id !== targetCard.id)
+            return [targetCard, ...without]
+        })
+        setFlipped(false)
+        onActiveIndexChange?.(activeIndex)
+    }, [activeIndex, cards, onActiveIndexChange])
 
     useEffect(() => {
         const el = containerRef.current
