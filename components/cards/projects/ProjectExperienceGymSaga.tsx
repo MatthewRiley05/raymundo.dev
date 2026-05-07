@@ -6,7 +6,7 @@ import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
 export function ProjectGymSagaFront() {
     return (
         <ExperienceCardFront
-            title="Finalist"
+            title="UI/UX Developer"
             subtitle="GymSaga"
             date="Present"
             location="Hong Kong SAR"
