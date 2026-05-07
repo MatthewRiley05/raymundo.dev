@@ -8,7 +8,7 @@ export function WorkExperienceExpFront() {
         <ExperienceCardFront
             title="Software Design Assistant"
             subtitle="EXP.is | Sleeep Technologies Ltd."
-            date="Mar 2025 - Aug 2025"
+            date="March 2025 - August 2025"
             location="Hong Kong SAR"
             tags={["Flutter", "Dart"]}
             cardLabel="Work Experience"

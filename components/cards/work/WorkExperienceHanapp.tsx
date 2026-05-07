@@ -8,7 +8,7 @@ export function WorkExperienceHanappFront() {
         <ExperienceCardFront
             title="Co-Founder"
             subtitle="Hanapp"
-            date="Sep 2025 - Present"
+            date="September 2025 - Present"
             location="Philippines"
             tags={["QuickBooks"]}
             cardLabel="Work Experience"

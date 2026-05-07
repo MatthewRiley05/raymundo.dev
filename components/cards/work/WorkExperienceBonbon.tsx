@@ -8,7 +8,7 @@ export function WorkExperienceBonbonFront() {
         <ExperienceCardFront
             title="Software Engineer Intern"
             subtitle="Bonbon Robotics"
-            date="Jul 2024 - August 2024"
+            date="July 2024 - August 2024"
             location="Hong Kong SAR"
             tags={["Python"]}
             cardLabel="Work Experience"
