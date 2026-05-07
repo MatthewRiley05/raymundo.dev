@@ -51,14 +51,13 @@ export default function CardStack({
             const index = e.detail.index
             const targetCard = cards[index]
             if (!targetCard) return
-            
-            setOrder((prev) => {
-                const without = prev.filter((c) => c.id !== targetCard.id)
-                return [targetCard, ...without]
-            })
+
+            const after = cards.slice(index + 1)
+            const before = cards.slice(0, index)
+            setOrder([targetCard, ...after, ...before])
             setFlipped(false)
         }
-        
+
         window.addEventListener('dockNavigate', handleDockNavigate as EventListener)
         return () => window.removeEventListener('dockNavigate', handleDockNavigate as EventListener)
     }, [cards])
@@ -71,11 +70,9 @@ export default function CardStack({
         const targetCard = cards[activeIndex]
         if (!targetCard) return
 
-        // Move the target card to the front of the stack
-        setOrder((prev) => {
-            const without = prev.filter((c) => c.id !== targetCard.id)
-            return [targetCard, ...without]
-        })
+        const after = cards.slice(activeIndex + 1)
+        const before = cards.slice(0, activeIndex)
+        setOrder([targetCard, ...after, ...before])
         setFlipped(false)
         onActiveIndexChange?.(activeIndex)
     }, [activeIndex, cards, onActiveIndexChange])
