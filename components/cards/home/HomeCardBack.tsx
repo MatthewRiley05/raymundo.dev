@@ -7,38 +7,38 @@ export default function HomeCardBack() {
         <SimpleCardLayout
             title="Contact"
             body={
-                <div className="space-y-4">
+                <div className="space-y-0 sm:space-y-1 md:space-y-2 lg:space-y-3 xl:space-y-4 2xl:space-y-5">
                     <div>
-                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[10px] sm:text-[11px]">
+                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px]">
                             Website
                         </div>
-                        <a href="https://raymundo.dev" className="text-[11px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
+                        <a href="https://raymundo.dev" className="text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
                             raymundo.dev
                         </a>
                     </div>
                     <div>
-                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[10px] sm:text-[11px]">
+                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px]">
                             Email
                         </div>
-                        <a href="mailto:matthewrileyraymundo@gmail.com" className="text-[11px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
+                        <a href="mailto:matthewrileyraymundo@gmail.com" className="text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
                             matthewrileyraymundo@gmail.com
                         </a>
                     </div>
 
                     <div>
-                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[10px] sm:text-[11px]">
+                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px]">
                             Phone
                         </div>
-                        <a href="tel:+85256056737" className="text-[11px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
+                        <a href="tel:+85256056737" className="text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
                             +852 5605 6737
                         </a>
                     </div>
 
                     <div>
-                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[10px] sm:text-[11px]">
+                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px]">
                             Links
                         </div>
-                        <ul className="text-[11px] sm:text-xs md:text-sm underline text-muted-foreground list-disc pl-5 space-y-1 font-medium underline hover:text-foreground/80">
+                        <ul className="text-[8px] sm:text-xs md:text-sm underline text-muted-foreground list-disc pl-5 space-y-1 font-medium underline hover:text-foreground/80">
                             <li>
                                 <a className="" href="https://github.com/" target="_blank" rel="noopener noreferrer">
                                     GitHub

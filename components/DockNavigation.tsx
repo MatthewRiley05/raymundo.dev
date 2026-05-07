@@ -22,7 +22,7 @@ export default function DockNavigation() {
           <DockIcon key={item.label}>
             <button
               onClick={() => navigateTo(item.index)}
-              className={buttonVariants({ variant: "ghost", size: "icon" }) + " size-12 rounded-full"}
+              className={buttonVariants({ variant: "ghost", size: "icon" }) + " size-12 rounded-full cursor-pointer"}
               aria-label={item.label}
             >
               <span className="material-symbols-rounded text-xl">{item.icon}</span>
