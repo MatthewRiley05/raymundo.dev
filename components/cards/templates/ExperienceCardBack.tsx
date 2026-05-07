@@ -4,9 +4,10 @@ import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
 
 type Props = {
     highlights: string[]
+    cardLabel?: string
 }
 
-export default function WorkExperienceBack({ highlights }: Props) {
+export default function ExperienceCardBack({ highlights, cardLabel = "Experience" }: Props) {
     return (
         <SimpleCardLayout
             title="Highlights"
@@ -19,7 +20,7 @@ export default function WorkExperienceBack({ highlights }: Props) {
                     </ul>
                 </div>
             }
-            bottomLeft={<span className="font-mono uppercase tracking-[0.28em]">Work Experience</span>}
+            bottomLeft={<span className="font-mono uppercase tracking-[0.28em]">{cardLabel}</span>}
             bottomRight={<span>Back</span>}
         />
     )

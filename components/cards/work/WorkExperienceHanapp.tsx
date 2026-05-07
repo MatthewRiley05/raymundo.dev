@@ -1,27 +1,29 @@
 "use client"
 
-import WorkExperienceFront from "@/components/cards/templates/WorkExperienceFront"
-import WorkExperienceBack from "@/components/cards/templates/WorkExperienceBack"
+import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront"
+import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
 
 export function WorkExperienceHanappFront() {
     return (
-        <WorkExperienceFront
+        <ExperienceCardFront
             title="Co-Founder"
-            company="Hanapp"
-            date="Sep 2025 - Present"
+            subtitle="Hanapp"
+            date="September 2025 - Present"
             location="Philippines"
             tags={["QuickBooks"]}
+            cardLabel="Work Experience"
         />
     )
 }
 
 export function WorkExperienceHanappBack() {
     return (
-        <WorkExperienceBack
+        <ExperienceCardBack
             highlights={[
                 "Digitalized bookkeeping and budgeting by transitioning fnancial records to QuickBooks Online, improving organization and accuracy.",
                 "Supported pre-launch business planning through fnancial projections and analysis of early-stage monetization strategies.",
             ]}
+            cardLabel="Work Experience"
         />
     )
 }
