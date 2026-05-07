@@ -21,7 +21,7 @@ export default function HomeCardFront() {
                     alt="Matthew Riley Chun Raymundo"
                     width={256}
                     height={256}
-                    className="rounded-md object-cover w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36 loading='eager' fetchpriority='high'"
+                    className="rounded-md object-cover w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36 loading='eager' fetchpriority=high"
                 />
 
                 <div className="flex flex-col gap-1 text-left">
