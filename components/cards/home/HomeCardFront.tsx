@@ -89,7 +89,7 @@ export default function HomeCardFront() {
                 </>
             }
             bottomLeft={<span className="font-mono uppercase tracking-[0.28em]">Matthew Raymundo</span>}
-            bottomRight={<span>Front</span>}
+            bottomRight={<span>v2026.05 · next.js / react</span>}
         />
     )
 }
