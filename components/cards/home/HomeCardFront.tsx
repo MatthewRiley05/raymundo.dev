@@ -11,7 +11,7 @@ import {
 import Image from "next/image"
 import { TypingAnimation } from "@/components/ui/typing-animation"
 import { HyperText } from "@/components/ui/hyper-text"
-import { CARD_PX, CARD_TEXT_META, TEXT_SIZE, GAP_SIZE } from "@/components/stack/cardSpacing"
+import { CARD_PX, CARD_TEXT_META, TEXT_SIZE, GAP_SIZE, CARD_FOOTER } from "@/components/stack/cardSpacing"
 
 export default function HomeCardFront() {
     return (
@@ -90,11 +90,11 @@ export default function HomeCardFront() {
                 </p>
             </CardContent>
 
-            <CardFooter className="flex w-full items-center justify-between !py-2 xl:!py-6 2xl:!py-10 border-t border-border/60 text-[9px] sm:text-[10px] md:text-[10px] lg:text-[11px] xl:text-[11px] 2xl:text-[12px] px-6 sm:px-7 md:px-8 lg:px-9 xl:px-10 2xl:px-11">
-                <p className="font-mono uppercase tracking-[0.28em] text-muted-foreground">
+            <CardFooter className={CARD_PX + " " + CARD_FOOTER + " " + CARD_TEXT_META + " text-muted-foreground"}>
+                <div className="font-mono uppercase tracking-[0.28em]">
                     Matthew Raymundo
-                </p>
-                <p className="text-muted-foreground">v2026.05 · next.js / react</p>
+                </div>
+                <div>v2026.05 · next.js / react</div>
             </CardFooter>
         </Card>
     )

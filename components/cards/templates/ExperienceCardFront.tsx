@@ -7,20 +7,28 @@ import { TEXT_SIZE } from "@/components/stack/cardSpacing"
 type Props = {
     title: string
     subtitle: string
+    link?: string
     date: string
     location?: string
     tags?: string[]
     cardLabel?: string
 }
 
-export default function ExperienceCardFront({ title, subtitle, date, location, tags = [], cardLabel = "Experience" }: Props) {
+export default function ExperienceCardFront({ title, subtitle, link, date, location, tags = [], cardLabel = "Experience" }: Props) {
     return (
         <SimpleCardLayout
             title={title}
             body={
                 <div className="space-y-3">
                     <div className={TEXT_SIZE.meta + " font-medium"}>
-                        {subtitle}
+                        <a
+                            href={link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-foreground/80 hover:underline transition-colors"
+                        >
+                            {subtitle}
+                        </a>
                     </div>
                     <div className={"font-mono uppercase tracking-[0.22em] text-muted-foreground " + TEXT_SIZE.small}>
                         {date}{location ? ` | ${location}` : ""}
