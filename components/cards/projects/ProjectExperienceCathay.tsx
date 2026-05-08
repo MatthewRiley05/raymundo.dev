@@ -8,6 +8,7 @@ export function ProjectCathayFront() {
         <ExperienceCardFront
             title="Finalist"
             subtitle="CargoVision | Cathay Hackathon 2024"
+            link="https://www.cathaypacific.com/cx/en_HK/careers/why-cathay/hackathon.html"
             date="November 2024"
             location="Hong Kong SAR"
             tags={["React"]}

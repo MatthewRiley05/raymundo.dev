@@ -1,6 +1,7 @@
 "use client"
 
 import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
+import { TEXT_SIZE } from "@/components/stack/cardSpacing"
 
 type Props = {
     highlights: string[]
@@ -13,7 +14,7 @@ export default function ExperienceCardBack({ highlights, cardLabel = "Experience
             title="Highlights"
             body={
                 <div className="space-y-4">
-                    <ul className="text-[11px] sm:text-xs md:text-sm text-muted-foreground list-disc pl-5 space-y-2 font-medium">
+                    <ul className={TEXT_SIZE.meta + " list-disc pl-5 space-y-2 font-medium"}>
                         {highlights.map((item) => (
                             <li key={item}>{item}</li>
                         ))}

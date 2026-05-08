@@ -17,7 +17,7 @@ const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 const DECK_TWEEN = { type: "tween" as const, duration: 0.42, ease: EASE }
 const SNAP_BACK = { type: "spring" as const, stiffness: 420, damping: 44, mass: 1.0, bounce: 0 }
 const EXIT_TWEEN = { type: "tween" as const, duration: 0.40, ease: EASE }
-const ENTER_TWEEN = { type: "tween" as const, duration: 0.52, ease: EASE }
+const ENTER_TWEEN = { type: "tween" as const, duration: 0.5, ease: EASE }
 const SWIPE_OFFSET_PX = 140, SWIPE_VELOCITY = 900, TAP_MOVE_GUARD_PX = 10
 
 export default function CardStack({
@@ -51,14 +51,13 @@ export default function CardStack({
             const index = e.detail.index
             const targetCard = cards[index]
             if (!targetCard) return
-            
-            setOrder((prev) => {
-                const without = prev.filter((c) => c.id !== targetCard.id)
-                return [targetCard, ...without]
-            })
+
+            const after = cards.slice(index + 1)
+            const before = cards.slice(0, index)
+            setOrder([targetCard, ...after, ...before])
             setFlipped(false)
         }
-        
+
         window.addEventListener('dockNavigate', handleDockNavigate as EventListener)
         return () => window.removeEventListener('dockNavigate', handleDockNavigate as EventListener)
     }, [cards])
@@ -71,11 +70,9 @@ export default function CardStack({
         const targetCard = cards[activeIndex]
         if (!targetCard) return
 
-        // Move the target card to the front of the stack
-        setOrder((prev) => {
-            const without = prev.filter((c) => c.id !== targetCard.id)
-            return [targetCard, ...without]
-        })
+        const after = cards.slice(activeIndex + 1)
+        const before = cards.slice(0, activeIndex)
+        setOrder([targetCard, ...after, ...before])
         setFlipped(false)
         onActiveIndexChange?.(activeIndex)
     }, [activeIndex, cards, onActiveIndexChange])
@@ -130,12 +127,10 @@ export default function CardStack({
         requestAnimationFrame(() => setFreezeDeck(false))
     }
 
-    const visibleLen = Math.min(maxVisible, order.length)
-    const targetIndex = visibleLen
+    const targetIndex = maxVisible
     const targetY = targetIndex * PEEK_Y
     const targetXOffset = targetIndex * PEEK_X
     const targetScale = 1 - targetIndex * SCALE_STEP
-    const targetOpacity = Math.max(0.35, 1 - targetIndex * OPACITY_STEP)
     const targetZ = 50 - targetIndex
 
     return (
@@ -286,17 +281,23 @@ export default function CardStack({
                                 x: swiped.dir * SWIPE_X,
                                 y: targetY,
                                 rotate: swiped.dir * 5,
-                                opacity: 0,
+                                opacity: 1,
                                 scale: targetScale,
                             }}
                             animate={{
                                 x: 0,
                                 y: targetY,
                                 rotate: 0,
-                                opacity: targetOpacity,
+                                opacity: 0,
                                 scale: targetScale,
                             }}
-                            transition={ENTER_TWEEN}
+                            transition={{
+                                x: ENTER_TWEEN,
+                                y: ENTER_TWEEN,
+                                rotate: ENTER_TWEEN,
+                                scale: ENTER_TWEEN,
+                                opacity: { duration: 1, delay: 0.3, ease: EASE },
+                            }}
                             onAnimationComplete={finishEnter}
                         >
                             <SwipeFront />
@@ -307,3 +308,5 @@ export default function CardStack({
         </div>
     )
 }
+
+            
