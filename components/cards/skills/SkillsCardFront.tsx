@@ -1,6 +1,6 @@
 "use client";
 
-import { FaHtml5, FaCss3Alt, FaJs, FaJava, FaPython, FaRProject, FaReact, FaNodeJs, FaGitAlt, FaFigma, FaDatabase } from "react-icons/fa";
+import { FaHtml5, FaCss3Alt, FaJs, FaJava, FaPython, FaRProject, FaReact, FaNodeJs, FaGitAlt, FaFigma } from "react-icons/fa";
 import { SiTypescript, SiNextdotjs, SiExpress, SiMongodb, SiSqlite, SiQuickbooks, SiDart, SiFlutter } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
 import { CgCPlusPlus } from "react-icons/cg";
