@@ -24,7 +24,7 @@ export default function ExperienceCardFront({ title, logo, subtitle, link, date,
                 <div className={"flex items-center " + GAP_SIZE.item}>
                     {logo && (
                         <div className={LOGO_SIZE + " relative shrink-0"}>
-                            <Image src={logo} alt="" fill className="rounded object-contain" />
+                            <Image src={logo} alt="" fill sizes="96px" className="rounded object-contain" />
                         </div>
                     )}
                     {link ? (
