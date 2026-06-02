@@ -11,7 +11,7 @@ import {
   useDragControls,
 } from "motion/react";
 
-type Swiped = { card: StackCard; dir: 1 | -1; fromX: number };
+type Swiped = { card: StackCard; dir: 1 | -1; fromX: number; wasFlipped: boolean };
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 const DECK_TWEEN = { type: "tween" as const, duration: 0.42, ease: EASE };
@@ -118,13 +118,13 @@ export default function CardStack({
   const dragControls = useDragControls();
   const interactionLocked = Boolean(stage);
 
-  const startSwipe = (dir: 1 | -1) => {
+  const startSwipe = (dir: 1 | -1, wasFlipped: boolean) => {
     const top = order[0];
     if (!top || stage) return;
 
     const fromX = x.get();
 
-    setSwiped({ card: top, dir, fromX });
+    setSwiped({ card: top, dir, fromX, wasFlipped });
     setStage("exit");
     setOrder((prev) => prev.slice(1));
 
@@ -183,13 +183,13 @@ export default function CardStack({
               initial={{ y, scale, opacity }}
               animate={{ y, scale, opacity }}
               transition={freezeDeck ? { duration: 0 } : DECK_TWEEN}
-              drag={isTop && !flipped && !interactionLocked ? "x" : false}
+              drag={isTop && !interactionLocked ? "x" : false}
               dragControls={dragControls}
               dragListener={false}
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.1} // slightly tighter = more “premium”
               onPointerDown={(e) => {
-                if (!isTop || flipped || interactionLocked) return;
+                if (!isTop || interactionLocked) return;
                 startPtRef.current = { x: e.clientX, y: e.clientY };
                 movedRef.current = false;
                 dragControls.start(e);
@@ -217,7 +217,7 @@ export default function CardStack({
                 setIsDragging(false);
                 startPtRef.current = null;
 
-                if (!isTop || flipped || interactionLocked) return;
+                if (!isTop || interactionLocked) return;
 
                 const offsetX = info.offset.x;
                 const velocityX = info.velocity.x;
@@ -226,7 +226,7 @@ export default function CardStack({
                   Math.abs(velocityX) > SWIPE_VELOCITY;
 
                 if (shouldSwipe) {
-                  startSwipe(offsetX >= 0 ? 1 : -1);
+                  startSwipe(offsetX >= 0 ? 1 : -1, flipped);
                 } else {
                   animate(x, 0, SNAP_BACK);
                 }
@@ -262,7 +262,7 @@ export default function CardStack({
 
       {swiped && stage === "exit"
         ? (() => {
-            const SwipeFront = swiped.card.Front;
+            const SwipeFace = swiped.wasFlipped && swiped.card.Back ? swiped.card.Back : swiped.card.Front;
             return (
               <motion.div
                 key={`${swiped.card.id}-exit`}
@@ -283,7 +283,7 @@ export default function CardStack({
                 transition={EXIT_TWEEN}
                 onAnimationComplete={() => setStage("enter")}
               >
-                <SwipeFront />
+                <SwipeFace />
               </motion.div>
             );
           })()
@@ -291,7 +291,7 @@ export default function CardStack({
 
       {swiped && stage === "enter"
         ? (() => {
-            const SwipeFront = swiped.card.Front;
+            const SwipeFace = swiped.wasFlipped && swiped.card.Back ? swiped.card.Back : swiped.card.Front;
             return (
               <motion.div
                 key={`${swiped.card.id}-enter`}
@@ -324,7 +324,7 @@ export default function CardStack({
                 }}
                 onAnimationComplete={finishEnter}
               >
-                <SwipeFront />
+                <SwipeFace />
               </motion.div>
             );
           })()
