@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { AnimatePresence, motion, MotionProps } from "motion/react"
+import { motion, MotionProps } from "motion/react"
 import { cn } from "@/lib/utils"
 
 type CharacterSet = string[] | readonly string[]
@@ -114,7 +114,6 @@ export function HyperText({
       onMouseEnter={handleAnimationTrigger}
       {...props}
     >
-      <AnimatePresence>
         {displayText.map((letter, index) => (
           <motion.span
             key={index}
@@ -123,7 +122,6 @@ export function HyperText({
             {letter.toUpperCase()}
           </motion.span>
         ))}
-      </AnimatePresence>
     </motion.div>
   )
 }

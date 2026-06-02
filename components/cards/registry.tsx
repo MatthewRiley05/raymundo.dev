@@ -1,30 +1,17 @@
 import type { StackCard } from "@/components/stack/types"
 
-export async function getCards(): Promise<StackCard[]> {
-    const [
-        { default: HomeCardFront },
-        { default: HomeCardBack },
-        { WorkExperienceHanappFront, WorkExperienceHanappBack },
-        { WorkExperienceExpFront, WorkExperienceExpBack },
-        { WorkExperienceBonbonFront, WorkExperienceBonbonBack },
-        { default: SkillsCardFront },
-        { default: SkillsCardBack },
-        { ProjectCathayFront, ProjectCathayBack },
-        { ProjectGymSagaFront, ProjectGymSagaBack },
-        { ProjectFlavorFlickFront, ProjectFlavorFlickBack },
-    ] = await Promise.all([
-        import("@/components/cards/home/HomeCardFront"),
-        import("@/components/cards/home/HomeCardBack"),
-        import("@/components/cards/work/WorkExperienceHanapp"),
-        import("@/components/cards/work/WorkExperienceExp"),
-        import("@/components/cards/work/WorkExperienceBonbon"),
-        import("@/components/cards/skills/SkillsCardFront"),
-        import("@/components/cards/skills/SkillsCardBack"),
-        import("@/components/cards/projects/ProjectExperienceCathay"),
-        import("@/components/cards/projects/ProjectExperienceGymSaga"),
-        import("@/components/cards/projects/ProjectExperienceFlavorFlick"),
-    ])
+import { default as HomeCardFront } from "@/components/cards/home/HomeCardFront"
+import { default as HomeCardBack } from "@/components/cards/home/HomeCardBack"
+import { WorkExperienceHanappFront, WorkExperienceHanappBack } from "@/components/cards/work/WorkExperienceHanapp"
+import { WorkExperienceExpFront, WorkExperienceExpBack } from "@/components/cards/work/WorkExperienceExp"
+import { WorkExperienceBonbonFront, WorkExperienceBonbonBack } from "@/components/cards/work/WorkExperienceBonbon"
+import { default as SkillsCardFront } from "@/components/cards/skills/SkillsCardFront"
+import { default as SkillsCardBack } from "@/components/cards/skills/SkillsCardBack"
+import { ProjectCathayFront, ProjectCathayBack } from "@/components/cards/projects/ProjectExperienceCathay"
+import { ProjectGymSagaFront, ProjectGymSagaBack } from "@/components/cards/projects/ProjectExperienceGymSaga"
+import { ProjectFlavorFlickFront, ProjectFlavorFlickBack } from "@/components/cards/projects/ProjectExperienceFlavorFlick"
 
+export function getCards(): StackCard[] {
     return [
         { id: "home", Front: HomeCardFront, Back: HomeCardBack },
         { id: "work-exp-1", Front: WorkExperienceHanappFront, Back: WorkExperienceHanappBack },
