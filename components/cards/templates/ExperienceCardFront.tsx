@@ -4,7 +4,7 @@ import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
 import Image from "next/image"
 import { CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { TEXT_SIZE } from "@/components/stack/cardSpacing"
+import { TEXT_SIZE, GAP_SIZE, LOGO_SIZE } from "@/components/stack/cardSpacing"
 
 type Props = {
     title: string
@@ -21,9 +21,11 @@ export default function ExperienceCardFront({ title, logo, subtitle, link, date,
     return (
         <SimpleCardLayout
             header={
-                <div className="flex items-center gap-3">
+                <div className={"flex items-center " + GAP_SIZE.item}>
                     {logo && (
-                        <Image src={logo} alt="" width={50} height={50} className="rounded" />
+                        <div className={LOGO_SIZE + " relative shrink-0"}>
+                            <Image src={logo} alt="" fill className="rounded object-contain" />
+                        </div>
                     )}
                     {link ? (
                         <a href={link} target="_blank" rel="noopener noreferrer" className="hover:underline">
