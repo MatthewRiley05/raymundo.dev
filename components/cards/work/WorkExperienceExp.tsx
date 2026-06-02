@@ -6,6 +6,7 @@ import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
 export function WorkExperienceExpFront() {
     return (
         <ExperienceCardFront
+            logo="/logos/EXP.png"
             title="EXP.is | Sleeep Technologies Ltd."
             link="https://www.exp.is/"
             subtitle="Software Design Assistant"

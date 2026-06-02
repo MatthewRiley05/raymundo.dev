@@ -6,6 +6,7 @@ import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
 export function WorkExperienceBonbonFront() {
     return (
         <ExperienceCardFront
+            logo="/logos/Bonbon.png"
             title="Bonbon Robotics"
             link="https://www.bonbonrobotics.com/"
             subtitle="Software Engineer Intern"

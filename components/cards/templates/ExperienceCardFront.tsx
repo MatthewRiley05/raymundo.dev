@@ -21,9 +21,9 @@ export default function ExperienceCardFront({ title, logo, subtitle, link, date,
     return (
         <SimpleCardLayout
             header={
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
                     {logo && (
-                        <Image src={logo} alt="" width={24} height={24} className="rounded" />
+                        <Image src={logo} alt="" width={50} height={50} className="rounded" />
                     )}
                     {link ? (
                         <a href={link} target="_blank" rel="noopener noreferrer" className="hover:underline">

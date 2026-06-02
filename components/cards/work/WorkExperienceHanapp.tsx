@@ -6,6 +6,7 @@ import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
 export function WorkExperienceHanappFront() {
     return (
         <ExperienceCardFront
+            logo="/logos/Hanapp.webp"
             title="Hanapp"
             link="https://hanapp.com.ph"
             subtitle="Co-Founder"
