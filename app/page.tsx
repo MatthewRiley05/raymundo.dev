@@ -1,10 +1,11 @@
 "use client"
 
+import dynamic  from "next/dynamic"
 import { motion } from "motion/react"
 import BusinessCard from "@/components/BusinessCard"
-import DitherBackground from "@/components/DitherBackground"
 import DockNavigation from "@/components/DockNavigation"
 
+const DitherBackground = dynamic(() => import("@/components/DitherBackground"), { ssr: false })
 const FADE_DURATION = 1
 
 export default function Home() {
