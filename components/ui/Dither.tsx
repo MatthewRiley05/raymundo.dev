@@ -60,7 +60,7 @@ float cnoise(vec2 P) {
   return 2.3 * mix(n_x.x, n_x.y, fade_xy.y);
 }
 
-const int OCTAVES = 4;
+const int OCTAVES = 3;
 float fbm(vec2 p) {
   float value = 0.0;
   float amp = 1.0;
@@ -253,10 +253,9 @@ function DitheredWaves({
       prevColor.current = [...waveColor];
     }
 
-    u.enableMouseInteraction.value = enableMouseInteraction ? 1 : 0;
-    u.mouseRadius.value = mouseRadius;
-
     if (enableMouseInteraction) {
+      u.enableMouseInteraction.value = 1;
+      u.mouseRadius.value = mouseRadius;
       u.mousePos.value.copy(mouseRef.current);
     }
   });
@@ -327,8 +326,7 @@ export default function Dither({
     <Canvas
       className="w-full h-full relative"
       camera={{ position: [0, 0, 6] }}
-      dpr={1}
-      gl={{ antialias: true, preserveDrawingBuffer: true }}
+      dpr={[0.75, 1]}
     >
       <DitheredWaves
         waveSpeed={waveSpeed}
