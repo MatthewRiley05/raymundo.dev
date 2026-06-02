@@ -4,7 +4,7 @@ import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
 import Image from "next/image"
 import { TypingAnimation } from "@/components/ui/typing-animation"
 import { HyperText } from "@/components/ui/hyper-text"
-import { TEXT_SIZE, GAP_SIZE } from "@/components/stack/cardSpacing"
+import { TEXT_SIZE } from "@/components/stack/cardSpacing"
 import { CardDescription } from "@/components/ui/card"
 
 export default function HomeCardFront() {
