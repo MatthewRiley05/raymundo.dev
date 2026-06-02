@@ -6,8 +6,10 @@ import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
 export function WorkExperienceExpFront() {
     return (
         <ExperienceCardFront
-            title="Software Design Assistant"
-            subtitle="EXP.is | Sleeep Technologies Ltd."
+            logo="/logos/EXP.png"
+            title="EXP.is | Sleeep Technologies Ltd."
+            link="https://www.exp.is/"
+            subtitle="Software Design Assistant"
             date="March 2025 - August 2025"
             location="Hong Kong SAR"
             tags={["Flutter", "Dart"]}

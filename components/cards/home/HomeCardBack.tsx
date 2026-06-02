@@ -12,7 +12,7 @@ export default function HomeCardBack() {
                         <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px]">
                             Website
                         </div>
-                        <a href="https://raymundo.dev" className="mt-0 block text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
+                        <a href="https://raymundo.dev" className="mt-0 w-fit text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
                             raymundo.dev
                         </a>
                     </div>
@@ -20,7 +20,7 @@ export default function HomeCardBack() {
                         <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px]">
                             Email
                         </div>
-                        <a href="mailto:matthewrileyraymundo@gmail.com" className="mt-0 block text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
+                        <a href="mailto:matthewrileyraymundo@gmail.com" className="mt-0 w-fit text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
                             matthewrileyraymundo@gmail.com
                         </a>
                     </div>
@@ -29,7 +29,7 @@ export default function HomeCardBack() {
                         <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px]">
                             Phone
                         </div>
-                        <a href="tel:+85256056737" className="mt-0 block text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
+                        <a href="tel:+85256056737" className="mt-0 w-fit text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
                             +852 5605 6737
                         </a>
                     </div>
@@ -38,7 +38,7 @@ export default function HomeCardBack() {
                         <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px]">
                             Links
                         </div>
-                        <ul className="text-[8px] sm:text-xs md:text-sm underline text-muted-foreground list-disc pl-5 space-y-0 font-medium underline hover:text-foreground/80">
+                        <ul className="text-[8px] sm:text-xs md:text-sm text-muted-foreground list-disc pl-5 space-y-0 font-medium underline hover:text-foreground/80">
                             <li>
                                 <a className="" href="https://github.com/" target="_blank" rel="noopener noreferrer">
                                     GitHub
