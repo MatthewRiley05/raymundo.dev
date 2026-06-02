@@ -6,8 +6,9 @@ import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
 export function WorkExperienceHanappFront() {
     return (
         <ExperienceCardFront
-            title="Co-Founder"
-            subtitle="Hanapp"
+            title="Hanapp"
+            link="https://hanapp.com.ph"
+            subtitle="Co-Founder"
             date="September 2025 - Present"
             location="Philippines"
             tags={["QuickBooks"]}
