@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { StackCard } from "@/components/stack/types";
 import FlippableCard from "@/components/stack/FlippableCard";
 import {
@@ -51,19 +51,19 @@ export default function CardStack({
   const [frameW, setFrameW] = useState(1000);
   const prevActiveIndex = useRef<number | undefined>(undefined);
 
-  useEffect(() => setOrder(cards), [cards]);
+  const navigateToCard = useCallback((index: number) => {
+    const targetCard = cards[index];
+    if (!targetCard) return;
+    const after = cards.slice(index + 1);
+    const before = cards.slice(0, index);
+    setOrder([targetCard, ...after, ...before]);
+    setFlipped(false);
+  }, [cards]);
 
   // Listen for dock navigation events from DockNavigation component
   useEffect(() => {
     const handleDockNavigate = (e: CustomEvent<{ index: number }>) => {
-      const index = e.detail.index;
-      const targetCard = cards[index];
-      if (!targetCard) return;
-
-      const after = cards.slice(index + 1);
-      const before = cards.slice(0, index);
-      setOrder([targetCard, ...after, ...before]);
-      setFlipped(false);
+      navigateToCard(e.detail.index);
     };
 
     window.addEventListener(
@@ -75,23 +75,16 @@ export default function CardStack({
         "dockNavigate",
         handleDockNavigate as EventListener,
       );
-  }, [cards]);
+  }, [navigateToCard]);
 
   // Handle external activeIndex changes from dock navigation
   useEffect(() => {
     if (activeIndex === undefined || activeIndex === prevActiveIndex.current)
       return;
     prevActiveIndex.current = activeIndex;
-
-    const targetCard = cards[activeIndex];
-    if (!targetCard) return;
-
-    const after = cards.slice(activeIndex + 1);
-    const before = cards.slice(0, activeIndex);
-    setOrder([targetCard, ...after, ...before]);
-    setFlipped(false);
+    navigateToCard(activeIndex);
     onActiveIndexChange?.(activeIndex);
-  }, [activeIndex, cards, onActiveIndexChange]);
+  }, [activeIndex, navigateToCard, onActiveIndexChange]);
 
   useEffect(() => {
     const el = containerRef.current;
