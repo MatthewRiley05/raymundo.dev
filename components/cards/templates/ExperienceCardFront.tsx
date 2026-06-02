@@ -21,7 +21,7 @@ export default function ExperienceCardFront({ title, logo, subtitle, link, date,
     return (
         <SimpleCardLayout
             header={
-                <div className={"flex items-center " + GAP_SIZE.item}>
+                <div className={"flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 2xl:gap-8"}>
                     {logo && (
                         <div className={LOGO_SIZE + " relative shrink-0"}>
                             <Image src={logo} alt="" fill sizes="96px" className="rounded object-contain" />
