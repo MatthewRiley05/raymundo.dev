@@ -149,19 +149,23 @@ export function TypingAnimation({
   }
 
   return (
-    <motion.span
-      ref={elementRef}
-      className={cn("leading-[5rem] tracking-[-0.02em]", className)}
-      {...props}
-    >
-      {displayedText}
-      {shouldShowCursor && (
-        <span
-          className={cn("inline-block", blinkCursor && "animate-blink-cursor")}
-        >
-          {getCursorChar()}
-        </span>
-      )}
-    </motion.span>
+    <>
+      <motion.span
+        ref={elementRef}
+        className={cn("leading-[5rem] tracking-[-0.02em]", className)}
+        aria-hidden="true"
+        {...props}
+      >
+        {displayedText}
+        {shouldShowCursor && (
+          <span
+            className={cn("inline-block", blinkCursor && "animate-blink-cursor")}
+          >
+            {getCursorChar()}
+          </span>
+        )}
+      </motion.span>
+      <span className="sr-only">{displayedText}</span>
+    </>
   )
 }
