@@ -15,9 +15,33 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://raymundo.dev";
+
 export const metadata: Metadata = {
   title: "Matthew Raymundo",
   description: "Software Developer - Building minimal and practical tools",
+  openGraph: {
+    title: "Matthew Raymundo",
+    description: "Software Developer - Building minimal and practical tools",
+    url: siteUrl,
+    siteName: "Matthew Raymundo",
+    images: [
+      {
+        url: "/OpenGraph.png",
+        width: 1200,
+        height: 630,
+        alt: "Matthew Raymundo - Software Developer",
+      }
+    ],
+    locale: "en-US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Matthew Raymundo",
+    description: "Software Developer - Building minimal and practical tools",
+    images: ["/OpenGraph.png",]
+  }
 };
 
 export default function RootLayout({
