@@ -16,8 +16,7 @@ export default function DockNavigation() {
   }
 
   return (
-    <nav aria-label="Section Navigation">
-      <div className="fixed bottom-20 left-0 right-0 flex justify-center pointer-events-auto z-50">
+      <nav aria-label="Section Navigation" className="fixed bottom-20 left-0 right-0 flex justify-center pointer-events-auto z-50">
         <Dock direction="middle">
           {NAV_ITEMS.map((item) => (
             <DockIcon key={item.label}>
@@ -31,7 +30,6 @@ export default function DockNavigation() {
             </DockIcon>
           ))}
         </Dock>
-      </div>
-    </nav>
+      </nav>
   )
 }
