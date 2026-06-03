@@ -11,7 +11,7 @@ import {
   useDragControls,
 } from "motion/react";
 
-type Swiped = { card: StackCard; dir: 1 | -1; fromX: number; wasFlipped: boolean };
+type Swiped = { card: StackCard; dir: 1 | -1; fromX: number; wasFlipped: boolean; version: number };
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 const DECK_TWEEN = { type: "tween" as const, duration: 0.42, ease: EASE };
@@ -48,6 +48,8 @@ export default function CardStack({
   const movedRef = useRef(false);
   const startPtRef = useRef<{ x: number; y: number } | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const swipedRef = useRef<Swiped | null>(null);
+  const swipeVersionRef = useRef(0);
   const [frameW, setFrameW] = useState(1000);
   const prevActiveIndex = useRef<number | undefined>(undefined);
 
@@ -109,35 +111,47 @@ export default function CardStack({
   const SWIPE_X = Math.max(240, frameW * 0.58);
 
   const dragControls = useDragControls();
-  const interactionLocked = Boolean(stage);
 
   const startSwipe = (dir: 1 | -1, wasFlipped: boolean) => {
     const top = order[0];
-    if (!top || stage) return;
+    if (!top) return;
 
+    swipeVersionRef.current += 1;
     const fromX = x.get();
 
-    setSwiped({ card: top, dir, fromX, wasFlipped });
-    setStage("exit");
+    if (swipedRef.current) {
+      const old = swipedRef.current;
+      setOrder((prev) => {
+        const withoutOld = prev.filter((c) => c.id !== old.card.id);
+        return [...withoutOld, old.card];
+      });
+    }
+
     setOrder((prev) => prev.slice(1));
 
+    const next = { card: top, dir, fromX, wasFlipped, version: swipeVersionRef.current };
+    swipedRef.current = next;
+    setSwiped(next);
+    setStage("exit");
     setFlipped(false);
     setIsDragging(false);
     x.set(0);
   };
 
   const finishEnter = () => {
-    setFreezeDeck(true);
+    const card = swipedRef.current;
+    if (!card || card.version !== swipeVersionRef.current) return;
 
+    setFreezeDeck(true);
     setOrder((prev) => {
-      if (!swiped) return prev;
-      const id = swiped.card.id;
+      const id = card.card.id;
       const without = prev.filter((c) => c.id !== id);
-      return [...without, swiped.card];
+      return [...without, card.card];
     });
 
     setStage(null);
     setSwiped(null);
+    swipedRef.current = null;
 
     requestAnimationFrame(() => setFreezeDeck(false));
   };
@@ -176,13 +190,13 @@ export default function CardStack({
               initial={{ y, scale, opacity }}
               animate={{ y, scale, opacity }}
               transition={freezeDeck ? { duration: 0 } : DECK_TWEEN}
-              drag={isTop && !interactionLocked ? "x" : false}
+              drag={isTop ? "x" : false}
               dragControls={dragControls}
               dragListener={false}
               dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.1} // slightly tighter = more “premium”
+              dragElastic={0.5}
               onPointerDown={(e) => {
-                if (!isTop || interactionLocked) return;
+                if (!isTop) return;
                 startPtRef.current = { x: e.clientX, y: e.clientY };
                 movedRef.current = false;
                 dragControls.start(e);
@@ -210,7 +224,7 @@ export default function CardStack({
                 setIsDragging(false);
                 startPtRef.current = null;
 
-                if (!isTop || interactionLocked) return;
+                if (!isTop) return;
 
                 const offsetX = info.offset.x;
                 const velocityX = info.velocity.x;
@@ -239,7 +253,7 @@ export default function CardStack({
                       if (movedRef.current) return;
                       setFlipped((v) => !v);
                     }}
-                    enabled={!isDragging && !interactionLocked}
+                    enabled={!isDragging}
                     front={<Front />}
                     back={<Back />}
                     className="w-full h-full"
@@ -274,7 +288,11 @@ export default function CardStack({
                   opacity: 0,
                 }}
                 transition={EXIT_TWEEN}
-                onAnimationComplete={() => setStage("enter")}
+                onAnimationComplete={() => {
+                  if (swipedRef.current?.version === swipeVersionRef.current) {
+                    setStage("enter");
+                  }
+                }}
               >
                 <SwipeFace />
               </motion.div>
