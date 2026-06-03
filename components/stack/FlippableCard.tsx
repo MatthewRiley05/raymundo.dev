@@ -68,7 +68,7 @@ export default function FlippableCard({
     <div
       role="button"
       tabIndex={0}
-      aria-pressed={flipped}
+      aria-expanded={flipped}
       onClick={(e) => {
         if (!enabled) return;
         if (isInteractiveTarget(e.target)) return;

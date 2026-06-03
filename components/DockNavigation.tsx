@@ -16,20 +16,20 @@ export default function DockNavigation() {
   }
 
   return (
-    <div className="fixed bottom-20 left-0 right-0 flex justify-center pointer-events-auto z-50">
-      <Dock direction="middle">
-        {NAV_ITEMS.map((item) => (
-          <DockIcon key={item.label}>
-            <button
-              onClick={() => navigateTo(item.index)}
-              className={buttonVariants({ variant: "ghost", size: "icon" }) + " size-12 rounded-full cursor-pointer"}
-              aria-label={item.label}
-            >
-              <span className="material-symbols-rounded text-xl">{item.icon}</span>
-            </button>
-          </DockIcon>
-        ))}
-      </Dock>
-    </div>
+      <nav aria-label="Section Navigation" className="fixed bottom-20 left-0 right-0 flex justify-center pointer-events-auto z-50">
+        <Dock direction="middle">
+          {NAV_ITEMS.map((item) => (
+            <DockIcon key={item.label}>
+              <button
+                onClick={() => navigateTo(item.index)}
+                className={buttonVariants({ variant: "ghost", size: "icon" }) + " size-12 rounded-full cursor-pointer"}
+                aria-label={item.label}
+              >
+                <span className="material-symbols-rounded text-xl">{item.icon}</span>
+              </button>
+            </DockIcon>
+          ))}
+        </Dock>
+      </nav>
   )
 }

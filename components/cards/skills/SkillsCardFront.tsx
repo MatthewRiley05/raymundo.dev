@@ -6,7 +6,14 @@ import { VscVscode } from "react-icons/vsc";
 import { CgCPlusPlus } from "react-icons/cg";
 import SimpleCardLayout from "@/components/stack/SimpleCardLayout";
 
-const categories = [
+type SkillItem = {
+  name: string
+  icon: React.ComponentType<{ className?: string; color?: string }> | null
+  color: string
+  flag?: string
+}
+
+const categories: { label: string; skills: SkillItem[] }[] = [
   {
     label: "Programming",
     skills: [
@@ -45,8 +52,8 @@ const categories = [
 {
     label: "Languages",
     skills: [
-      { name: "🇺🇸 English", icon: null, color: "" },
-      { name: "🇵🇭 Filipino", icon: null, color: "" },
+      { name: "English", icon: null, color: "", flag: "🇺🇸"},
+      { name: "Filipino", icon: null, color: "", flag: "🇵🇭" },
     ],
   },
 ];
@@ -76,11 +83,11 @@ export default function SkillsCardFront() {
                       />
                     ) : (
                       <span className="text-[8px] xs:text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px] leading-none transition-transform hover:scale-110">
-                        {skill.name.split(" ")[0]}
+                        {"flag" in skill ? skill.flag : skill.name}
                       </span>
                     )}
                     <span className="text-[5px] sm:text-[9px] md:text-[10px] text-muted-foreground text-center leading-tight">
-                      {skill.icon ? skill.name : skill.name.split(" ").slice(1).join(" ")}
+                      {skill.name}
                     </span>
                   </div>
                 ))}
