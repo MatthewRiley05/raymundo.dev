@@ -109,11 +109,11 @@ export default function CardStack({
   const SWIPE_X = Math.max(240, frameW * 0.58);
 
   const dragControls = useDragControls();
-  const interactionLocked = Boolean(stage);
+  const interactionLocked = stage === "exit";
 
   const startSwipe = (dir: 1 | -1, wasFlipped: boolean) => {
     const top = order[0];
-    if (!top || stage) return;
+    if (!top || stage === "exit") return;
 
     const fromX = x.get();
 
