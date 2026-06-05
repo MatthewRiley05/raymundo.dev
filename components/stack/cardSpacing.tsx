@@ -11,7 +11,7 @@ export const TEXT_SIZE = {
 } as const
 
 export const GAP_SIZE = {
-    section: "gap-1 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6",
-    item: "gap-1 sm:gap-2 md:gap-2 lg:gap-3 xl:gap-4 2xl:gap-5",
-    inline: "gap-2",
+    section: "gap-[clamp(0.25rem,-0.1rem+1.5vw,1.5rem)]",
+    item: "gap-[clamp(0.25rem,-0.1rem+1.5vw,1.5rem)]",
+    inline: "gap-[clamp(0.5rem,0.4rem+0.25vw,0.75rem)]",
 } as const
