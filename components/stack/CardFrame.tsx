@@ -3,7 +3,7 @@
 import Tilt from "react-parallax-tilt"
 import { cn } from "@/lib/utils"
 
-const FRAME_CLASS = "w-[min(65vw,56rem)] aspect-[1.75] flex items-center justify-center pointer-events-auto cursor-default"
+const FRAME_CLASS = "w-[min(80vw,56rem)] aspect-[1.75] flex items-center justify-center pointer-events-auto cursor-default"
 
 export default function CardFrame({ children, className, tiltEnabled = true }: {
     children: React.ReactNode
