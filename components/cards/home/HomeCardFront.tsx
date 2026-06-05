@@ -20,15 +20,15 @@ export default function HomeCardFront() {
                         sizes="144px"
                         loading="eager"
                         fetchPriority="high"
-                        className="rounded-md object-cover w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36"
+                        className="rounded-md object-cover w-12 h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36"
                     />
 
                     <div className="flex flex-col gap-1 text-left">
-                        <span className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl leading-tight font-semibold">
+                        <span className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl leading-tight font-semibold">
                             Matthew Riley Chun Raymundo
                         </span>
 
-                        <CardDescription className="text-[11px] sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg text-muted-foreground">
+                        <CardDescription className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg text-muted-foreground">
                             Software Developer
                         </CardDescription>
                     </div>
@@ -74,7 +74,7 @@ export default function HomeCardFront() {
                         HKG ⇄ MNL
                     </HyperText>
 
-                    <p className="text-[11px] sm:text-xs md:text-sm text-muted-foreground">
+                    <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">
                         <span className="font-medium">Now:</span> Building a digital service
                         marketplace for Filipinos @{" "}
                         <a

@@ -41,7 +41,7 @@ export default function ExperienceCardFront({ title, logo, subtitle, link, date,
                 </div>
             }
             body={
-                <div className="space-y-3">
+                <div className="space-y-1 sm:space-y-2 md:space-y-3">
                     <div className={TEXT_SIZE.meta + " font-medium"}>
                         {subtitle}
                     </div>

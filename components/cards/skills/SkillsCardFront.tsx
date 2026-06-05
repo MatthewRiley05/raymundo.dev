@@ -86,7 +86,7 @@ export default function SkillsCardFront() {
                         {"flag" in skill ? skill.flag : skill.name}
                       </span>
                     )}
-                    <span className="text-[clamp(0.3125rem,0.5rem+0.125vw,0.625rem)] text-muted-foreground text-center leading-tight">
+                    <span className="text-[clamp(0.3125rem,0.1875rem+0.25vw,0.625rem)] text-muted-foreground text-center leading-tight">
                       {skill.name}
                     </span>
                   </div>
