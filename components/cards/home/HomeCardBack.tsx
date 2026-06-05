@@ -7,35 +7,35 @@ export default function HomeCardBack() {
         <SimpleCardLayout
             title="Contact"
             body={
-                <div className="flex flex-col gap-1 sm:gap-3 md:gap-4 lg:gap-5">
+                <div className="flex flex-col gap-1 sm:gap-2.5 md:gap-3.5 lg:gap-4.5">
                     <div>
-                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px]">
+                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px] leading-none">
                             Website
                         </div>
-                        <a href="https://raymundo.dev" className="mt-0 w-fit text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
+                        <a href="https://raymundo.dev" className="text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
                             raymundo.dev
                         </a>
                     </div>
                     <div>
-                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px]">
+                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px] leading-none">
                             Email
                         </div>
-                        <a href="mailto:matthewrileyraymundo@gmail.com" className="mt-0 w-fit text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
+                        <a href="mailto:matthewrileyraymundo@gmail.com" className="text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
                             matthewrileyraymundo@gmail.com
                         </a>
                     </div>
 
                     <div>
-                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px]">
+                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px] leading-none">
                             Phone
                         </div>
-                        <a href="tel:+85256056737" className="mt-0 w-fit text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
+                        <a href="tel:+85256056737" className="text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
                             +852 5605 6737
                         </a>
                     </div>
 
                     <div>
-                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px]">
+                        <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px] leading-none">
                             Links
                         </div>
                         <ul className="text-[8px] sm:text-xs md:text-sm text-muted-foreground list-disc pl-5 space-y-0 font-medium underline hover:text-foreground/80">

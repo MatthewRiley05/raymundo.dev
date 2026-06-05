@@ -49,13 +49,6 @@ const categories: { label: string; skills: SkillItem[] }[] = [
       { name: "QuickBooks", icon: SiQuickbooks, color: "#319E21" },
     ],
   },
-{
-    label: "Languages",
-    skills: [
-      { name: "English", icon: null, color: "", flag: "🇺🇸"},
-      { name: "Filipino", icon: null, color: "", flag: "🇵🇭" },
-    ],
-  },
 ];
 
 export default function SkillsCardFront() {
@@ -63,13 +56,13 @@ export default function SkillsCardFront() {
     <SimpleCardLayout
       title="Skills"
       body={
-        <div className="space-y-[clamp(0rem,-0.25rem+0.75vw,0.75rem)]">
+        <div className="space-y-[clamp(0.1875rem,0rem+0.5vw,0.75rem)]">
           {categories.map((cat) => (
             <div key={cat.label}>
-              <h3 className="text-[clamp(0.375rem,0.35rem+0.375vw,0.75rem)] font-semibold text-muted-foreground uppercase tracking-wider mb-1">
+              <h3 className="text-[clamp(0.4375rem,0.35rem+0.375vw,0.75rem)] font-semibold text-muted-foreground uppercase tracking-wider mb-0.5">
                 {cat.label}
               </h3>
-              <div className="flex flex-wrap gap-[clamp(0.5rem,0.3rem+1.25vw,1.5rem)]">
+              <div className="flex flex-wrap gap-[clamp(0.625rem,0.3rem+1.25vw,1.5rem)]">
                 {cat.skills.map((skill) => (
                   <div
                     key={skill.name}
@@ -78,7 +71,7 @@ export default function SkillsCardFront() {
                   >
                     {skill.icon ? (
                       <skill.icon
-                        className="w-[clamp(0.625rem,0.35rem+1.25vw,1.75rem)] h-[clamp(0.625rem,0.35rem+1.25vw,1.75rem)] sm:transition-transform sm:hover:scale-110"
+                        className="w-[clamp(0.75rem,0.35rem+1.25vw,1.75rem)] h-[clamp(0.75rem,0.35rem+1.25vw,1.75rem)] sm:transition-transform sm:hover:scale-110"
                         color={skill.color}
                       />
                     ) : (
@@ -86,7 +79,7 @@ export default function SkillsCardFront() {
                         {"flag" in skill ? skill.flag : skill.name}
                       </span>
                     )}
-                    <span className="text-[clamp(0.3125rem,0.1875rem+0.25vw,0.625rem)] text-muted-foreground text-center leading-tight">
+                    <span className="text-[clamp(0.375rem,0.1875rem+0.25vw,0.625rem)] text-muted-foreground text-center leading-tight">
                       {skill.name}
                     </span>
                   </div>

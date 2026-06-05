@@ -4,7 +4,7 @@ export const CARD_TEXT_META = "text-[clamp(0.5625rem,0.55rem+0.125vw,0.75rem)]"
 export const LOGO_SIZE = "w-[clamp(2.5rem,0.5rem+5vw,6rem)] h-[clamp(2.5rem,1.4rem+4vw,6rem)]"
 
 export const TEXT_SIZE = {
-    body: "text-[clamp(0.5rem,0.3rem+0.75vw,1.125rem)]",
+    body: "text-[clamp(0.5rem,0.3rem+0.9vw,1rem)] sm:text-[clamp(0.6875rem,0.4rem+0.5vw,1rem)]",
     small: "text-[clamp(0.5rem,0.45rem+0.15vw,0.75rem)]",
     meta: "text-[clamp(0.5rem,0.4rem+0.3vw,0.75rem)] text-muted-foreground",
     label: "text-[clamp(0.375rem,0.25rem+0.35vw,0.75rem)]",

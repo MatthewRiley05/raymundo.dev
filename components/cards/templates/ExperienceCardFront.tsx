@@ -29,12 +29,12 @@ export default function ExperienceCardFront({ title, logo, subtitle, link, date,
                     )}
                     {link ? (
                         <a href={link} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                            <CardTitle className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
+                            <CardTitle className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
                                 {title}
                             </CardTitle>
                         </a>
                     ) : (
-                        <CardTitle className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
+                        <CardTitle className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
                             {title}
                         </CardTitle>
                     )}

@@ -74,7 +74,7 @@ export default function HomeCardFront() {
                         HKG ⇄ MNL
                     </HyperText>
 
-                    <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">
+                    <p className={TEXT_SIZE.meta}>
                         <span className="font-medium">Now:</span> Building a digital service
                         marketplace for Filipinos @{" "}
                         <a
