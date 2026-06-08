@@ -7,8 +7,8 @@ export function ProjectCathayFront() {
     return (
         <ExperienceCardFront
             title="Cathay Hackathon 2024 | CargoVision"
+            link="https://github.com/JaayTeeee/cathay_personalize"
             subtitle="Finalist"
-            link="https://hackathon.cathaypacific.com/en_HK"
             date="November 2024"
             location="Hong Kong SAR"
             tags={["React"]}

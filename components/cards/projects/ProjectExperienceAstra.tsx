@@ -7,6 +7,7 @@ export function ProjectGymSagaFront() {
     return (
         <ExperienceCardFront
             title="Astra"
+            link="https://github.com/MatthewRiley05/Astra"
             subtitle="Artificial Intelligence Engineer"
             date="November 2025"
             location="Hong Kong SAR"

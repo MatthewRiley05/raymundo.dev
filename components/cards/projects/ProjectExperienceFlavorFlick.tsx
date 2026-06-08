@@ -7,6 +7,7 @@ export function ProjectFlavorFlickFront() {
     return (
         <ExperienceCardFront
             title="FlavorFlick"
+            link="https://github.com/MatthewRiley05/FlavorFlick"
             subtitle="Full-Stack Developer"
             date="January 2026"
             location="Hong Kong SAR"
