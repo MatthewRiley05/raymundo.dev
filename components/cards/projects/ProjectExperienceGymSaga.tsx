@@ -6,8 +6,8 @@ import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
 export function ProjectGymSagaFront() {
     return (
         <ExperienceCardFront
-            title="UI/UX Developer"
-            subtitle="GymSaga"
+            title="GymSaga"
+            subtitle="Full-Stack Developer"
             date="Present"
             location="Hong Kong SAR"
             tags={["TypeScript", "React", "Next.js", "Node.js", "Express.js", "MongoDB"]}
@@ -20,7 +20,7 @@ export function ProjectGymSagaBack() {
     return (
         <ExperienceCardBack
             highlights={[
-                " Building a full-stack social platform for fitness enthusiasts to track gym visits and share experiences.",
+                "Building a full-stack social platform for fitness enthusiasts to track gym visits and share experiences.",
             ]}
             cardLabel="Project Experience"
         />

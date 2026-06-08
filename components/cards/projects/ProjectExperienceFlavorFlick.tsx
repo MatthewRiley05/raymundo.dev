@@ -6,8 +6,8 @@ import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
 export function ProjectFlavorFlickFront() {
     return (
         <ExperienceCardFront
-            title="Full-Stack Developer"
-            subtitle="FlavorFlick"
+            title="FlavorFlick"
+            subtitle="Full-Stack Developer"
             date="January 2026"
             location="Hong Kong SAR"
             tags={["Flutter", "Dart", "Google Maps API"]}
