@@ -4,7 +4,7 @@ import { useState } from "react"
 import Lightbox from "yet-another-react-lightbox"
 import "yet-another-react-lightbox/styles.css"
 import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
-import { TEXT_SIZE } from "@/components/stack/cardSpacing"
+import { TEXT_SIZE, STACK_SIZE } from "@/components/stack/cardSpacing"
 
 type Props = {
     highlights: string[]
@@ -21,7 +21,7 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
                 title="Highlights"
                 body={
                     <div className="flex flex-row gap-4 h-full">
-                        <ul className={"flex-1 " + TEXT_SIZE.meta + " list-disc pl-5 space-y-2 font-medium"}>
+                        <ul className={"flex-1 " + TEXT_SIZE.meta + " list-disc pl-5 " + STACK_SIZE.item + " font-medium"}>
                             {highlights.map((item) => (
                                 <li key={item}>{item}</li>
                             ))}
