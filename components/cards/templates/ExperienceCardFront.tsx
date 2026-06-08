@@ -1,11 +1,10 @@
 "use client"
 
-
 import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
 import Image from "next/image"
 import { CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { TEXT_SIZE, GAP_SIZE, LOGO_SIZE } from "@/components/stack/cardSpacing"
+import { TEXT_SIZE, LOGO_SIZE } from "@/components/stack/cardSpacing"
 import { PreviewLinkCard, PreviewLinkCardContent, PreviewLinkCardImage, PreviewLinkCardTrigger } from "@/components/animate-ui/components/radix/preview-link-card"
 
 type Props = {

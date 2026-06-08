@@ -20,20 +20,24 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
             <SimpleCardLayout
                 title="Highlights"
                 body={
-                    <div className="flex flex-row gap-4 h-full">
-                        <ul className={"flex-1 " + TEXT_SIZE.meta + " list-disc pl-5 " + STACK_SIZE.item + " font-medium"}>
+                    <div className="grid grid-cols-2 gap-4 flex-1 min-h-0 overflow-hidden">
+                        <ul className={"list-disc pl-5 " + STACK_SIZE.item + " font-medium " + TEXT_SIZE.meta}>
                             {highlights.map((item) => (
                                 <li key={item}>{item}</li>
                             ))}
                         </ul>
 
                         {images[0] && (
-                            <img
-                                src={images[0].src}
-                                alt={images[0].alt ?? "screenshot"}
-                                className="block w-1/2 h-auto cursor-pointer rounded-md self-center"
-                                onClick={(e) => { e.stopPropagation(); setOpen(true) }}
-                            />
+                            <div className="relative w-full h-full min-h-0 min-w-0">
+                                <div className="absolute inset-0 flex items-center justify-center p-2">
+                                    <img
+                                        src={images[0].src}
+                                        alt={images[0].alt ?? "screenshot"}
+                                        className="max-w-full max-h-full w-auto h-auto rounded-md object-contain cursor-pointer shadow-sm"
+                                        onClick={(e) => { e.stopPropagation(); setOpen(true) }}
+                                    />
+                                </div>
+                            </div>
                         )}
                     </div>
                 }
@@ -46,6 +50,7 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
                     open={open}
                     close={() => setOpen(false)}
                     slides={images.map(img => ({ src: img.src }))}
+                    controller={{ closeOnBackdropClick: true }}
                 />
             </div>
         </>
