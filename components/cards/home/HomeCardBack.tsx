@@ -50,9 +50,18 @@ export default function HomeCardBack() {
                         </div>
                         <ul className="text-[8px] sm:text-xs md:text-sm text-muted-foreground list-disc pl-5 space-y-0 font-medium underline hover:text-foreground/80">
                             <li>
-                                <a className="" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                                    GitHub
-                                </a>
+                                <PreviewLinkCard href="https://github.com/MatthewRiley05">
+                                    <PreviewLinkCardTrigger
+                                        className="text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    > 
+                                        GitHub
+                                    </PreviewLinkCardTrigger>
+                                    <PreviewLinkCardContent>
+                                        <PreviewLinkCardImage alt="GitHub - Matthew Raymundo" />
+                                    </PreviewLinkCardContent>
+                                </PreviewLinkCard> 
                             </li>
                             <li>
                                 <a className="" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
