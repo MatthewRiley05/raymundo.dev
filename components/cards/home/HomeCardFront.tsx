@@ -86,14 +86,18 @@ export default function HomeCardFront() {
                     <p className={TEXT_SIZE.meta}>
                         <span className="font-medium">Now:</span> Building a digital service
                         marketplace for Filipinos @{" "}
-                        <a
-                            href="https://hanapp.com.ph/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-medium underline hover:text-foreground/80"
-                        >
-                            Hanapp
-                        </a>
+                        <PreviewLinkCard href="https://hanapp.com.ph/">
+                            <PreviewLinkCardTrigger
+                                className="font-medium underline hover:text-foreground/80"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            > 
+                                Hanapp
+                            </PreviewLinkCardTrigger>
+                            <PreviewLinkCardContent>
+                                <PreviewLinkCardImage alt="Hanapp" />
+                            </PreviewLinkCardContent>
+                        </PreviewLinkCard>
                         .
                     </p>
                 </>
