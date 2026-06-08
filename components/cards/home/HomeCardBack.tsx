@@ -1,5 +1,6 @@
 "use client"
 
+import { PreviewLinkCard, PreviewLinkCardContent, PreviewLinkCardImage, PreviewLinkCardTrigger } from "@/components/animate-ui/components/radix/preview-link-card"
 import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
 
 export default function HomeCardBack() {
@@ -12,9 +13,18 @@ export default function HomeCardBack() {
                         <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px] leading-none">
                             Website
                         </div>
-                        <a href="https://raymundo.dev" className="text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80">
-                            raymundo.dev
-                        </a>
+                        <PreviewLinkCard href="https://raymundo.dev">
+                            <PreviewLinkCardTrigger
+                                className="text-[8px] sm:text-xs md:text-sm text-muted-foreground font-medium underline hover:text-foreground/80"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            > 
+                                raymundo.dev
+                            </PreviewLinkCardTrigger>
+                            <PreviewLinkCardContent>
+                                <PreviewLinkCardImage alt="raymundo.dev" />
+                            </PreviewLinkCardContent>
+                        </PreviewLinkCard>                        
                     </div>
                     <div>
                         <div className="font-mono uppercase tracking-[0.22em] text-muted-foreground text-[8px] sm:text-[11px] leading-none">
