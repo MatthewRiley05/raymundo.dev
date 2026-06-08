@@ -8,7 +8,7 @@ import { WorkExperienceBonbonFront, WorkExperienceBonbonBack } from "@/component
 import { default as SkillsCardFront } from "@/components/cards/skills/SkillsCardFront"
 import { default as SkillsCardBack } from "@/components/cards/skills/SkillsCardBack"
 import { ProjectCathayFront, ProjectCathayBack } from "@/components/cards/projects/ProjectExperienceCathay"
-import { ProjectGymSagaFront, ProjectGymSagaBack } from "@/components/cards/projects/ProjectExperienceGymSaga"
+import { ProjectGymSagaFront, ProjectGymSagaBack } from "@/components/cards/projects/ProjectExperienceAstra"
 import { ProjectFlavorFlickFront, ProjectFlavorFlickBack } from "@/components/cards/projects/ProjectExperienceFlavorFlick"
 
 export function getCards(): StackCard[] {

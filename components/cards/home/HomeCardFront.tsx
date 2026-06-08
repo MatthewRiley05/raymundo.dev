@@ -6,6 +6,7 @@ import { TypingAnimation } from "@/components/ui/typing-animation"
 import { HyperText } from "@/components/ui/hyper-text"
 import { TEXT_SIZE } from "@/components/stack/cardSpacing"
 import { CardDescription } from "@/components/ui/card"
+import { PreviewLinkCard, PreviewLinkCardContent, PreviewLinkCardImage, PreviewLinkCardTrigger } from "@/components/animate-ui/components/radix/preview-link-card"
 
 export default function HomeCardFront() {
     return (
@@ -48,26 +49,34 @@ export default function HomeCardFront() {
 
                     <p className={TEXT_SIZE.meta + " lg:hidden"}>
                         BSc (Hons) Fintech &amp; AI @{" "}
-                        <a
-                            href="https://www.polyu.edu.hk/en/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-medium underline hover:text-foreground/80"
-                        >
-                            HK PolyU
-                        </a>
+                        <PreviewLinkCard href="https://www.polyu.edu.hk/en/">
+                            <PreviewLinkCardTrigger
+                                className="font-medium underline hover:text-foreground/80"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            > 
+                                HK PolyU
+                            </PreviewLinkCardTrigger>
+                            <PreviewLinkCardContent>
+                                <PreviewLinkCardImage alt="The Hong Kong Polytechnic University" />
+                            </PreviewLinkCardContent>
+                        </PreviewLinkCard>
                     </p>
 
                     <p className={TEXT_SIZE.meta + " hidden lg:block"}>
                         BSc (Hons) Financial Technology &amp; Artificial Intelligence @{" "}
-                        <a
-                            href="https://www.polyu.edu.hk/en/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-medium underline hover:text-foreground/80"
-                        >
-                            The Hong Kong Polytechnic University
-                        </a>
+                        <PreviewLinkCard href="https://www.polyu.edu.hk/en/">
+                            <PreviewLinkCardTrigger
+                                className="font-medium underline hover:text-foreground/80"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            > 
+                                The Hong Kong Polytechnic University
+                            </PreviewLinkCardTrigger>
+                            <PreviewLinkCardContent>
+                                <PreviewLinkCardImage alt="The Hong Kong Polytechnic University" />
+                            </PreviewLinkCardContent>
+                        </PreviewLinkCard>
                     </p>
 
                     <HyperText className={"self-start inline-block " + TEXT_SIZE.meta + " py-0 overflow-hidden"}>
@@ -77,14 +86,18 @@ export default function HomeCardFront() {
                     <p className={TEXT_SIZE.meta}>
                         <span className="font-medium">Now:</span> Building a digital service
                         marketplace for Filipinos @{" "}
-                        <a
-                            href="https://hanapp.com.ph/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-medium underline hover:text-foreground/80"
-                        >
-                            Hanapp
-                        </a>
+                        <PreviewLinkCard href="https://hanapp.com.ph/">
+                            <PreviewLinkCardTrigger
+                                className="font-medium underline hover:text-foreground/80"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            > 
+                                Hanapp
+                            </PreviewLinkCardTrigger>
+                            <PreviewLinkCardContent>
+                                <PreviewLinkCardImage alt="Hanapp" />
+                            </PreviewLinkCardContent>
+                        </PreviewLinkCard>
                         .
                     </p>
                 </>
