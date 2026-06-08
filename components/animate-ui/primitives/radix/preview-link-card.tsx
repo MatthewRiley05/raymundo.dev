@@ -154,7 +154,6 @@ function PreviewLinkCardContent({
       sticky={sticky}
       hideWhenDetached={hideWhenDetached}
       transition={transition}
-      asChild={asChild}
       {...(asChild ? { style, ...props } : {})}
     >
       {asChild ? (

@@ -1,10 +1,12 @@
 "use client"
 
+
 import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
 import Image from "next/image"
 import { CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { TEXT_SIZE, GAP_SIZE, LOGO_SIZE } from "@/components/stack/cardSpacing"
+import { PreviewLinkCard, PreviewLinkCardContent, PreviewLinkCardImage, PreviewLinkCardTrigger } from "@/components/animate-ui/components/radix/preview-link-card"
 
 type Props = {
     title: string
@@ -28,11 +30,18 @@ export default function ExperienceCardFront({ title, logo, subtitle, link, date,
                         </div>
                     )}
                     {link ? (
-                        <a href={link} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                            <CardTitle className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
+                        <PreviewLinkCard href={link}>
+                            <PreviewLinkCardTrigger
+                                className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight hover:underline leading-none font-semibold"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            > 
                                 {title}
-                            </CardTitle>
-                        </a>
+                            </PreviewLinkCardTrigger>
+                            <PreviewLinkCardContent>
+                                <PreviewLinkCardImage alt={title} />
+                            </PreviewLinkCardContent>
+                        </PreviewLinkCard>
                     ) : (
                         <CardTitle className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
                             {title}
