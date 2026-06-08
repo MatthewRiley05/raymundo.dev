@@ -24,6 +24,9 @@ export function ProjectCathayBack() {
                 "Built an OCR-based solution to recover damaged shipping-label barcodes during a 24-hour, software-focused hackathon.",
                 "Team-based, online event; explored mobile-first flows and alternatives within the competition constraints."
             ]}
+            images={[
+                { src: "/Gallery/CargoVision/CargoVision_Scanner.png", alt: "CargoVision scanner" },
+            ]}
             cardLabel="Project Experience"
         />
     )
