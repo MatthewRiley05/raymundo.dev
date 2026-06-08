@@ -25,6 +25,13 @@ export function WorkExperienceExpBack() {
                 "Developed a companion Flutter app for a conversational AI device aimed at elderly users.",
                 "Supported market research to guide product direction and feature priorities.",
             ]}
+            images={[
+                { src: "/Gallery/EXP/EMO_Home.png", alt: "EXP.is App Home" },
+                { src: "/Gallery/EXP/EMO_Voice.png", alt: "EXP.is App Voice" },
+                { src: "/Gallery/EXP/EMO_Recording.png", alt: "EXP.is App Recording" },
+                { src: "/Gallery/EXP/EMO_AI.png", alt: "EXP.is App AI" },
+                { src: "/Gallery/EXP/EMO_Radio.png", alt: "EXP.is App Radio" },
+            ]}
             cardLabel="Work Experience"
         />
     )
