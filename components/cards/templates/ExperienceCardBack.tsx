@@ -29,7 +29,7 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
                         </ul>
 
                         {images[0] && (
-                            <div className="relative w-full h-full min-h-0 min-w-0 overflow-hidden rounded-md">
+                            <div className="relative w-full h-full min-h-0 min-w-0 overflow-hidden">
                                 <div className="absolute inset-0 flex items-center justify-center">
                                     <img
                                         src={images[0].src}
@@ -39,7 +39,7 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
                                             setOpen(true) 
                                         }}
                                         className={
-                                            "block object-contain rounded-md cursor-pointer " +
+                                            "block object-contain cursor-pointer rounded-md " +
                                             (orientation === "landscape"
                                                 ? "max-w-full h-auto max-h-none"
                                                 : "max-h-full w-auto max-w-none")
