@@ -15,3 +15,8 @@ export const GAP_SIZE = {
     item: "gap-[clamp(0.25rem,-0.1rem+1.5vw,1.5rem)]",
     inline: "gap-[clamp(0.5rem,0.4rem+0.25vw,0.75rem)]",
 } as const
+
+export const STACK_SIZE = {
+    item: "space-y-[clamp(0.25rem,-0.1rem+1.5vw,1.5rem)]",
+    tight: "space-y-[clamp(0.125rem,0rem+0.25vw,0.5rem)]",
+} as const

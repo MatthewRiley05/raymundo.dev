@@ -25,6 +25,9 @@ export function WorkExperienceBonbonBack() {
                 "Developed algorithms to calculate dynamic drone coordinates for variable feet sizes and formations.",
                 "Developed embedded software for an educational robot car, supporting interactive learning use cases.",
             ]}
+            images={[
+                { src: "/Gallery/Bonbon/Drone_Coordinate_System.png", alt: "Drone Coordinate System" },
+            ]}
             cardLabel="Work Experience"
         />
     )
