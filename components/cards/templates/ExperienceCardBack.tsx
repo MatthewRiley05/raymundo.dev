@@ -14,6 +14,7 @@ type Props = {
 
 export default function ExperienceCardBack({ highlights, images = [], cardLabel = "Experience" }: Props) {
     const [open, setOpen] = useState(false)
+    const [orientation, setOrientation] = useState<"landscape" | "portrait">("landscape")
 
     return (
         <>
@@ -28,13 +29,25 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
                         </ul>
 
                         {images[0] && (
-                            <div className="relative w-full h-full min-h-0 min-w-0">
-                                <div className="absolute inset-0 flex items-center justify-center p-2">
+                            <div className="relative w-full h-full min-h-0 min-w-0 overflow-hidden rounded-md">
+                                <div className="absolute inset-0 flex items-center justify-center">
                                     <img
                                         src={images[0].src}
                                         alt={images[0].alt ?? "screenshot"}
-                                        className="max-w-full max-h-full w-auto h-auto rounded-md object-contain cursor-pointer shadow-sm"
-                                        onClick={(e) => { e.stopPropagation(); setOpen(true) }}
+                                        onClick={(e) => { 
+                                            e.stopPropagation()
+                                            setOpen(true) 
+                                        }}
+                                        className={
+                                            "block object-contain rounded-md cursor-pointer " +
+                                            (orientation === "landscape"
+                                                ? "max-w-full h-auto max-h-none"
+                                                : "max-h-full w-auto max-w-none")
+                                        }
+                                        onLoad={(e) => {
+                                            const { naturalWidth, naturalHeight } = e.currentTarget
+                                            setOrientation(naturalWidth > naturalHeight ? "landscape" : "portrait")
+                                        }}
                                     />
                                 </div>
                             </div>
