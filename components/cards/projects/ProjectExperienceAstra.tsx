@@ -23,6 +23,10 @@ export function ProjectGymSagaBack() {
             highlights={[
                 "Building a full-stack social platform for fitness enthusiasts to track gym visits and share experiences.",
             ]}
+            images={[
+                { src: "/Gallery/Astra/Astra_Home.png", alt: "Astra Home" },
+                { src: "/Gallery/Astra/Astra_Chat.png", alt: "Astra Chat" },
+            ]}
             cardLabel="Project Experience"
         />
     )
