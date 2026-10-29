@@ -1,35 +1,41 @@
-"use client"
+"use client";
 
-import { Dock, DockIcon } from "@/components/ui/dock"
-import { buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button";
+import { Dock, DockIcon } from "@/components/ui/dock";
 
 const NAV_ITEMS = [
-  { icon: "home", label: "Home", index: 0 },
-  { icon: "work", label: "Experience", index: 1 },
-  { icon: "folder", label: "Projects", index: 4 },
-  { icon: "neurology", label: "Skills", index: 7 },
-]
+    { icon: "home", label: "Home", index: 0 },
+    { icon: "work", label: "Experience", index: 1 },
+    { icon: "folder", label: "Projects", index: 4 },
+    { icon: "neurology", label: "Skills", index: 8 },
+];
 
 export default function DockNavigation() {
-  const navigateTo = (index: number) => {
-    window.dispatchEvent(new CustomEvent('dockNavigate', { detail: { index } }))
-  }
+    const navigateTo = (index: number) => {
+        window.dispatchEvent(new CustomEvent("dockNavigate", { detail: { index } }));
+    };
 
-  return (
-      <nav aria-label="Section Navigation" className="fixed bottom-20 left-0 right-0 flex justify-center pointer-events-auto z-50">
-        <Dock direction="middle">
-          {NAV_ITEMS.map((item) => (
-            <DockIcon key={item.label}>
-              <button
-                onClick={() => navigateTo(item.index)}
-                className={buttonVariants({ variant: "ghost", size: "icon" }) + " size-12 rounded-full cursor-pointer"}
-                aria-label={item.label}
-              >
-                <span className="material-symbols-rounded text-xl">{item.icon}</span>
-              </button>
-            </DockIcon>
-          ))}
-        </Dock>
-      </nav>
-  )
+    return (
+        <nav
+            aria-label="Section Navigation"
+            className="fixed bottom-20 left-0 right-0 flex justify-center pointer-events-auto z-50"
+        >
+            <Dock direction="middle">
+                {NAV_ITEMS.map(item => (
+                    <DockIcon key={item.label}>
+                        <button
+                            onClick={() => navigateTo(item.index)}
+                            className={
+                                buttonVariants({ variant: "ghost", size: "icon" }) +
+                                " size-12 rounded-full cursor-pointer"
+                            }
+                            aria-label={item.label}
+                        >
+                            <span className="material-symbols-rounded text-xl">{item.icon}</span>
+                        </button>
+                    </DockIcon>
+                ))}
+            </Dock>
+        </nav>
+    );
 }
