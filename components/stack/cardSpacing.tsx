@@ -1,19 +1,24 @@
-export const CARD_PX = "px-[clamp(1.25rem,0.75rem+1.75vw,2.75rem)]";
+export const CARD_PX = "px-4 sm:px-6 md:px-8 lg:px-9 xl:px-10 2xl:px-11";
+export const CARD_GAP = "gap-4 sm:gap-1.5 md:gap-2 lg:gap-3 xl:gap-4 2xl:gap-5";
 export const CARD_FOOTER =
-    "border-t border-border/60 flex w-full items-center justify-between !py-[clamp(0.5rem,0.3rem+0.75vw,2.5rem)]";
-export const CARD_TEXT_META = "text-[clamp(0.5625rem,0.55rem+0.125vw,0.75rem)]";
-export const LOGO_SIZE = "w-[clamp(2.5rem,0.5rem+5vw,6rem)] h-[clamp(2.5rem,1.4rem+4vw,6rem)]";
+    "border-t border-border/60 flex w-full items-center justify-between gap-3 !py-[clamp(0.5rem,0.3rem+0.75vw,2.5rem)]";
+export const CARD_TEXT_META = "text-[clamp(0.625rem,0.55rem+0.125vw,0.75rem)]";
+export const LOGO_SIZE = "w-14 h-14 sm:w-[clamp(3rem,0.5rem+5vw,6rem)] sm:h-[clamp(3rem,1.4rem+4vw,6rem)]";
 
 export const TEXT_SIZE = {
-    body: "text-[clamp(0.5rem,0.3rem+0.9vw,1rem)] sm:text-[clamp(0.6875rem,0.4rem+0.5vw,1rem)]",
-    small: "text-[clamp(0.5rem,0.45rem+0.15vw,0.75rem)]",
-    meta: "text-[clamp(0.5rem,0.4rem+0.3vw,0.75rem)] text-muted-foreground",
-    label: "text-[clamp(0.375rem,0.25rem+0.35vw,0.75rem)]",
+    body: "text-[clamp(0.75rem,0.3rem+0.9vw,1rem)] sm:text-[clamp(0.6875rem,0.4rem+0.5vw,1rem)]",
+    small: "text-[clamp(0.625rem,0.45rem+0.15vw,0.75rem)]",
+    meta: "text-[clamp(0.6875rem,0.4rem+0.3vw,0.75rem)] text-muted-foreground",
+    label: "text-[clamp(0.625rem,0.25rem+0.35vw,0.75rem)]",
+    // Front faces are portrait on phones, so they can afford larger copy than the
+    // dense back face. Values from `sm` up match the original desktop scale.
+    frontBody: "text-sm sm:text-[clamp(0.6875rem,0.4rem+0.3vw,0.75rem)]",
+    frontSmall: "text-xs sm:text-[clamp(0.625rem,0.45rem+0.15vw,0.75rem)]",
 } as const;
 
 export const GAP_SIZE = {
-    section: "gap-[clamp(0.25rem,-0.1rem+1.5vw,1.5rem)]",
-    item: "gap-[clamp(0.25rem,-0.1rem+1.5vw,1.5rem)]",
+    section: "gap-[clamp(0.5rem,-0.1rem+1.5vw,1.5rem)]",
+    item: "gap-[clamp(0.5rem,-0.1rem+1.5vw,1.5rem)]",
     inline: "gap-[clamp(0.5rem,0.4rem+0.25vw,0.75rem)]",
 } as const;
 

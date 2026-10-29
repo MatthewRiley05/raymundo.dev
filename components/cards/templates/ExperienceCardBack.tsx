@@ -32,6 +32,7 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
     // Native sizing (not next/image `fill`) keeps the element the exact size of the
     // visible pixels, so the click target stays tight and taps on the empty space
     // still reach the card to flip it. `fill` would make the whole cell clickable.
+    // Phones use the same no-crop sizing inside a shorter preview band.
     const mediaClassName = "block h-auto w-auto max-h-full max-w-full cursor-pointer rounded-md";
 
     const mediaNode = !media ? null : media.type === "video" ? (
@@ -68,15 +69,15 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
             <SimpleCardLayout
                 title="Highlights"
                 body={
-                    <div className="grid grid-cols-2 gap-4 flex-1 min-h-0 overflow-hidden">
-                        <ul className={"list-disc pl-5 " + STACK_SIZE.item + " font-medium " + TEXT_SIZE.meta}>
+                    <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-hidden sm:grid sm:grid-cols-2 sm:gap-4">
+                        <ul className={"list-disc pl-4 sm:pl-5 " + STACK_SIZE.item + " font-medium " + TEXT_SIZE.meta}>
                             {highlights.map((item) => (
                                 <li key={item}>{item}</li>
                             ))}
                         </ul>
 
                         {mediaNode && (
-                            <div className="relative w-full h-full min-h-0 min-w-0 overflow-hidden">
+                            <div className="relative w-full min-w-0 flex-1 min-h-16 overflow-hidden max-[360px]:min-h-10 sm:h-full sm:min-h-0">
                                 <div className="absolute inset-0 flex items-center justify-center">{mediaNode}</div>
                             </div>
                         )}

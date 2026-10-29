@@ -16,6 +16,7 @@ import Image from "next/image";
 export default function HomeCardFront() {
     return (
         <SimpleCardLayout
+            centered
             header={
                 <div className="flex flex-row items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8">
                     <Image
@@ -26,26 +27,26 @@ export default function HomeCardFront() {
                         sizes="144px"
                         loading="eager"
                         fetchPriority="high"
-                        className="rounded-md object-cover w-12 h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36"
+                        className="rounded-md object-cover w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36"
                     />
 
                     <div className="flex flex-col gap-1 text-left">
-                        <span className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl leading-tight font-semibold">
+                        <span className="text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl leading-tight font-semibold">
                             Matthew Riley Chun Raymundo
                         </span>
 
-                        <CardDescription className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg text-muted-foreground">
+                        <CardDescription className="text-sm sm:text-xs md:text-sm lg:text-base xl:text-base 2xl:text-lg text-muted-foreground">
                             Software Developer
                         </CardDescription>
                     </div>
                 </div>
             }
             body={
-                <>
+                <div className="flex flex-col gap-8 sm:gap-[clamp(0.5rem,-0.1rem+1.5vw,1.5rem)]">
                     <span
                         className={
                             "relative pl-6 " +
-                            TEXT_SIZE.meta +
+                            TEXT_SIZE.frontBody +
                             " before:content-['//'] before:absolute before:left-0 before:text-muted-foreground"
                         }
                     >
@@ -54,11 +55,12 @@ export default function HomeCardFront() {
                             cursorStyle="underscore"
                             loop
                             words={["web", "mobile", "AI"]}
+                            className="whitespace-nowrap"
                             style={{ lineHeight: 1 }}
                         />
                     </span>
 
-                    <p className={TEXT_SIZE.meta + " lg:hidden"}>
+                    <p className={TEXT_SIZE.frontBody + " lg:hidden"}>
                         BSc (Hons) Fintech &amp; AI @{" "}
                         <PreviewLinkCard href="https://www.polyu.edu.hk/en/">
                             <PreviewLinkCardTrigger
@@ -74,7 +76,7 @@ export default function HomeCardFront() {
                         </PreviewLinkCard>
                     </p>
 
-                    <p className={TEXT_SIZE.meta + " hidden lg:block"}>
+                    <p className={TEXT_SIZE.frontBody + " hidden lg:block"}>
                         BSc (Hons) Financial Technology &amp; Artificial Intelligence @{" "}
                         <PreviewLinkCard href="https://www.polyu.edu.hk/en/">
                             <PreviewLinkCardTrigger
@@ -90,17 +92,17 @@ export default function HomeCardFront() {
                         </PreviewLinkCard>
                     </p>
 
-                    <HyperText className={"self-start inline-block " + TEXT_SIZE.meta + " py-0 overflow-hidden"}>
+                    <HyperText className={"self-start inline-block " + TEXT_SIZE.frontBody + " py-0 overflow-hidden"}>
                         HKG ⇄ MNL
                     </HyperText>
 
-                    <p className={TEXT_SIZE.meta}>
+                    <p className={TEXT_SIZE.frontBody}>
                         <span className="font-medium">Now:</span> Looking for my next destination
                     </p>
-                </>
+                </div>
             }
             bottomLeft={<span className="font-mono uppercase tracking-[0.28em]">Matthew Raymundo</span>}
-            bottomRight={<span>v2026.05 · next.js / react</span>}
+            bottomRight={<span className="max-[360px]:hidden">v2026.05 · next.js / react</span>}
         />
     );
 }

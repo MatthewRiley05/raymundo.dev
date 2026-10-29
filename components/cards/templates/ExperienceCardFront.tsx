@@ -35,6 +35,7 @@ export default function ExperienceCardFront({
 }: Props) {
     return (
         <SimpleCardLayout
+            centered
             header={
                 <div className={"flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 2xl:gap-8"}>
                     {logo && (
@@ -51,7 +52,7 @@ export default function ExperienceCardFront({
                     {link ? (
                         <PreviewLinkCard href={link}>
                             <PreviewLinkCardTrigger
-                                className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight hover:underline leading-none font-semibold"
+                                className="text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight hover:underline leading-none font-semibold"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -62,23 +63,27 @@ export default function ExperienceCardFront({
                             </PreviewLinkCardContent>
                         </PreviewLinkCard>
                     ) : (
-                        <CardTitle className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
+                        <CardTitle className="text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight">
                             {title}
                         </CardTitle>
                     )}
                 </div>
             }
             body={
-                <div className="space-y-1 sm:space-y-2 md:space-y-3">
-                    <div className={TEXT_SIZE.meta + " font-medium"}>{subtitle}</div>
-                    <div className={"font-mono uppercase tracking-[0.22em] text-muted-foreground " + TEXT_SIZE.small}>
+                <div className="space-y-5 sm:space-y-2 md:space-y-3">
+                    <div className={TEXT_SIZE.frontBody + " font-medium"}>{subtitle}</div>
+                    <div
+                        className={
+                            "font-mono uppercase tracking-[0.22em] text-muted-foreground " + TEXT_SIZE.frontSmall
+                        }
+                    >
                         {date}
                         {location ? ` | ${location}` : ""}
                     </div>
                     {tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2 pt-1">
+                        <div className="flex flex-wrap gap-2 pt-3 sm:pt-1">
                             {tags.map((tag) => (
-                                <Badge key={tag} variant="secondary" className={TEXT_SIZE.small}>
+                                <Badge key={tag} variant="secondary" className={TEXT_SIZE.frontSmall}>
                                     {tag}
                                 </Badge>
                             ))}

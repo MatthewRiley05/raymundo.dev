@@ -12,6 +12,7 @@ import { TEXT_SIZE } from "@/components/stack/cardSpacing";
 export default function HomeCardBack() {
     return (
         <SimpleCardLayout
+            centered
             title="Contact"
             body={
                 <div className="flex flex-col gap-1 sm:gap-2.5 md:gap-3.5 lg:gap-4.5">
@@ -21,7 +22,7 @@ export default function HomeCardBack() {
                         </div>
                         <PreviewLinkCard href="https://raymundo.dev">
                             <PreviewLinkCardTrigger
-                                className={TEXT_SIZE.meta + " font-medium underline hover:text-foreground/80"}
+                                className={TEXT_SIZE.frontBody + " font-medium underline hover:text-foreground/80"}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -38,7 +39,7 @@ export default function HomeCardBack() {
                         </div>
                         <a
                             href="mailto:matthewrileyraymundo@gmail.com"
-                            className={TEXT_SIZE.meta + " font-medium underline hover:text-foreground/80"}
+                            className={TEXT_SIZE.frontBody + " font-medium underline hover:text-foreground/80"}
                         >
                             matthewrileyraymundo@gmail.com
                         </a>
@@ -50,7 +51,7 @@ export default function HomeCardBack() {
                         </div>
                         <a
                             href="tel:+85256056737"
-                            className={TEXT_SIZE.meta + " font-medium underline hover:text-foreground/80"}
+                            className={TEXT_SIZE.frontBody + " font-medium underline hover:text-foreground/80"}
                         >
                             +852 5605 6737
                         </a>
@@ -62,14 +63,16 @@ export default function HomeCardBack() {
                         </div>
                         <ul
                             className={
-                                TEXT_SIZE.meta +
+                                TEXT_SIZE.frontBody +
                                 " list-disc pl-5 space-y-0 font-medium underline hover:text-foreground/80"
                             }
                         >
                             <li>
                                 <PreviewLinkCard href="https://github.com/MatthewRiley05">
                                     <PreviewLinkCardTrigger
-                                        className={TEXT_SIZE.meta + " font-medium underline hover:text-foreground/80"}
+                                        className={
+                                            TEXT_SIZE.frontBody + " font-medium underline hover:text-foreground/80"
+                                        }
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
