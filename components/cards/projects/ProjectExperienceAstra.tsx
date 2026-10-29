@@ -20,9 +20,7 @@ export function ProjectAstraFront() {
 export function ProjectAstraBack() {
     return (
         <ExperienceCardBack
-            highlights={[
-                "Building a full-stack social platform for fitness enthusiasts to track gym visits and share experiences.",
-            ]}
+            highlights={["Created an AI-powered chatbot with financial data integration."]}
             images={[
                 { src: "/Gallery/Astra/Astra_Home.png", alt: "Astra Home" },
                 { src: "/Gallery/Astra/Astra_Chat.png", alt: "Astra Chat" },
