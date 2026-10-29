@@ -43,7 +43,7 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
             loop
             autoPlay
             playsInline
-            preload="metadata"
+            preload="none"
             onClick={(e) => {
                 e.stopPropagation()
                 setOpen(true)
