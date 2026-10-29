@@ -22,8 +22,11 @@ export function WorkExperienceExpBack() {
     return (
         <ExperienceCardBack
             highlights={[
-                "Developed a companion Flutter app for a conversational AI device aimed at elderly users.",
-                "Supported market research to guide product direction and feature priorities.",
+                "Led Flutter/Dart development of an elderly-focused conversational AI companion app.",
+                "Owned feature delivery, refactoring, and client-driven iteration cycles.",
+                "Translated client feedback into practical UI/UX improvements for elderly users.",
+                "Adapted fast to GitHub, Slack/Notion workflows, and evolving requirements.",
+                "Demoed live app functionality to stakeholders at the Golden Age Expo.",
             ]}
             images={[
                 { src: "/Gallery/EXP/EMO_Home.png", alt: "EXP.is App Home" },

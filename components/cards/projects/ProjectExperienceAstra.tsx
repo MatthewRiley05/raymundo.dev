@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront"
-import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
+import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack";
+import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront";
 
-export function ProjectGymSagaFront() {
+export function ProjectAstraFront() {
     return (
         <ExperienceCardFront
             title="Astra"
@@ -14,20 +14,18 @@ export function ProjectGymSagaFront() {
             tags={["Docker", "Python", "API", "Scikit-learn", "Pandas", "Numpy", "Matplotlib", "TTS"]}
             cardLabel="Project Experience"
         />
-    )
+    );
 }
 
-export function ProjectGymSagaBack() {
+export function ProjectAstraBack() {
     return (
         <ExperienceCardBack
-            highlights={[
-                "Building a full-stack social platform for fitness enthusiasts to track gym visits and share experiences.",
-            ]}
+            highlights={["Created an AI-powered chatbot with financial data integration."]}
             images={[
                 { src: "/Gallery/Astra/Astra_Home.png", alt: "Astra Home" },
                 { src: "/Gallery/Astra/Astra_Chat.png", alt: "Astra Chat" },
             ]}
             cardLabel="Project Experience"
         />
-    )
+    );
 }

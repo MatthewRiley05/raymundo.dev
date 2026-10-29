@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront"
-import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
+import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack";
+import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront";
 
 export function WorkExperienceHanappFront() {
     return (
@@ -15,17 +15,17 @@ export function WorkExperienceHanappFront() {
             tags={["QuickBooks"]}
             cardLabel="Work Experience"
         />
-    )
+    );
 }
 
 export function WorkExperienceHanappBack() {
     return (
         <ExperienceCardBack
             highlights={[
-                "Digitalized bookkeeping and budgeting by transitioning fnancial records to QuickBooks Online, improving organization and accuracy.",
+                "Digitalized bookkeeping and budgeting by transitioning financial records to QuickBooks Online, improving organization and accuracy.",
                 "Supported pre-launch business planning through fnancial projections and analysis of early-stage monetization strategies.",
             ]}
             cardLabel="Work Experience"
         />
-    )
+    );
 }

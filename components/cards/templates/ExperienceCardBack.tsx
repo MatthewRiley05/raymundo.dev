@@ -2,19 +2,66 @@
 
 import { useState } from "react"
 import Lightbox from "yet-another-react-lightbox"
+import Video from "yet-another-react-lightbox/plugins/video"
 import "yet-another-react-lightbox/styles.css"
 import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
 import { TEXT_SIZE, STACK_SIZE } from "@/components/stack/cardSpacing"
 
+export type Media =
+    | { type?: "image"; src: string; alt?: string }
+    | {
+          type: "video"
+          src: string
+          alt?: string
+          /** Intrinsic size, required by the lightbox video plugin */
+          width: number
+          height: number
+          poster?: string
+      }
+
 type Props = {
     highlights: string[]
-    images?: { src: string; alt?: string }[]
+    images?: Media[]
     cardLabel?: string
 }
 
 export default function ExperienceCardBack({ highlights, images = [], cardLabel = "Experience" }: Props) {
     const [open, setOpen] = useState(false)
-    const [orientation, setOrientation] = useState<"landscape" | "portrait">("landscape")
+    const media = images[0]
+
+    // Native sizing (not next/image `fill`) keeps the element the exact size of the
+    // visible pixels, so the click target stays tight and taps on the empty space
+    // still reach the card to flip it. `fill` would make the whole cell clickable.
+    const mediaClassName = "block h-auto w-auto max-h-full max-w-full cursor-pointer rounded-md"
+
+    const mediaNode = !media ? null : media.type === "video" ? (
+        <video
+            src={media.src}
+            poster={media.poster}
+            aria-label={media.alt ?? "video"}
+            muted
+            loop
+            autoPlay
+            playsInline
+            preload="none"
+            onClick={(e) => {
+                e.stopPropagation()
+                setOpen(true)
+            }}
+            className={mediaClassName}
+        />
+    ) : (
+        // eslint-disable-next-line @next/next/no-img-element -- see mediaClassName note above
+        <img
+            src={media.src}
+            alt={media.alt ?? "screenshot"}
+            onClick={(e) => {
+                e.stopPropagation()
+                setOpen(true)
+            }}
+            className={mediaClassName}
+        />
+    )
 
     return (
         <>
@@ -28,28 +75,9 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
                             ))}
                         </ul>
 
-                        {images[0] && (
+                        {mediaNode && (
                             <div className="relative w-full h-full min-h-0 min-w-0 overflow-hidden">
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <img
-                                        src={images[0].src}
-                                        alt={images[0].alt ?? "screenshot"}
-                                        onClick={(e) => { 
-                                            e.stopPropagation()
-                                            setOpen(true) 
-                                        }}
-                                        className={
-                                            "block object-contain cursor-pointer rounded-md " +
-                                            (orientation === "landscape"
-                                                ? "max-w-full h-auto max-h-none"
-                                                : "max-h-full w-auto max-w-none")
-                                        }
-                                        onLoad={(e) => {
-                                            const { naturalWidth, naturalHeight } = e.currentTarget
-                                            setOrientation(naturalWidth > naturalHeight ? "landscape" : "portrait")
-                                        }}
-                                    />
-                                </div>
+                                <div className="absolute inset-0 flex items-center justify-center">{mediaNode}</div>
                             </div>
                         )}
                     </div>
@@ -62,7 +90,18 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
                 <Lightbox
                     open={open}
                     close={() => setOpen(false)}
-                    slides={images.map(img => ({ src: img.src }))}
+                    plugins={[Video]}
+                    slides={images.map((item) =>
+                        item.type === "video"
+                            ? {
+                                  type: "video" as const,
+                                  width: item.width,
+                                  height: item.height,
+                                  poster: item.poster,
+                                  sources: [{ src: item.src, type: "video/mp4" }],
+                              }
+                            : { src: item.src, alt: item.alt }
+                    )}
                     controller={{ closeOnBackdropClick: true }}
                 />
             </div>

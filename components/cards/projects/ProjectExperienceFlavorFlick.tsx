@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront"
-import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
+import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack";
+import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront";
 
 export function ProjectFlavorFlickFront() {
     return (
@@ -14,7 +14,7 @@ export function ProjectFlavorFlickFront() {
             tags={["Flutter", "Dart", "Google Maps API"]}
             cardLabel="Project Experience"
         />
-    )
+    );
 }
 
 export function ProjectFlavorFlickBack() {
@@ -23,7 +23,8 @@ export function ProjectFlavorFlickBack() {
             highlights={[
                 "Developed a Material Design Flutter app that parses an OpenRice user's public bookmarks and presents restaurants as swipeable cards, sorted by proximity via device location and Google Maps API.",
             ]}
+            images={[{ src: "/Gallery/FlavorFlick/FlavorFlick.png", alt: "FlavorFlick Home" }]}
             cardLabel="Project Experience"
         />
-    )
+    );
 }

@@ -9,7 +9,7 @@ export function WorkExperienceBonbonFront() {
             logo="/logos/Bonbon.png"
             title="Bonbon Robotics"
             link="https://www.bonbonrobotics.com/"
-            subtitle="Software Engineer Intern"
+            subtitle="Software Engineering Intern"
             date="July 2024 - August 2024"
             location="Hong Kong SAR"
             tags={["Python"]}
@@ -22,8 +22,8 @@ export function WorkExperienceBonbonBack() {
     return (
         <ExperienceCardBack
             highlights={[
-                "Developed algorithms to calculate dynamic drone coordinates for variable feet sizes and formations.",
-                "Developed embedded software for an educational robot car, supporting interactive learning use cases.",
+                "Programmed embedded software for an educational robot car, linking hardware and interactive logic.",
+                "Designed scalable algorithms for real-time drone coordinates across variable fleet formations.",
             ]}
             images={[
                 { src: "/Gallery/Bonbon/Drone_Coordinate_System.png", alt: "Drone Coordinate System" },

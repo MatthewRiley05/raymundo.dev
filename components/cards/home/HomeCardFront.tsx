@@ -1,12 +1,17 @@
-"use client"
+"use client";
 
-import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
-import Image from "next/image"
-import { TypingAnimation } from "@/components/ui/typing-animation"
-import { HyperText } from "@/components/ui/hyper-text"
-import { TEXT_SIZE } from "@/components/stack/cardSpacing"
-import { CardDescription } from "@/components/ui/card"
-import { PreviewLinkCard, PreviewLinkCardContent, PreviewLinkCardImage, PreviewLinkCardTrigger } from "@/components/animate-ui/components/radix/preview-link-card"
+import {
+    PreviewLinkCard,
+    PreviewLinkCardContent,
+    PreviewLinkCardImage,
+    PreviewLinkCardTrigger,
+} from "@/components/animate-ui/components/radix/preview-link-card";
+import { TEXT_SIZE } from "@/components/stack/cardSpacing";
+import SimpleCardLayout from "@/components/stack/SimpleCardLayout";
+import { CardDescription } from "@/components/ui/card";
+import { HyperText } from "@/components/ui/hyper-text";
+import { TypingAnimation } from "@/components/ui/typing-animation";
+import Image from "next/image";
 
 export default function HomeCardFront() {
     return (
@@ -37,7 +42,13 @@ export default function HomeCardFront() {
             }
             body={
                 <>
-                    <span className={"relative pl-6 " + TEXT_SIZE.meta + " before:content-['//'] before:absolute before:left-0 before:text-muted-foreground"}>
+                    <span
+                        className={
+                            "relative pl-6 " +
+                            TEXT_SIZE.meta +
+                            " before:content-['//'] before:absolute before:left-0 before:text-muted-foreground"
+                        }
+                    >
                         I build minimal and practical tools across{" "}
                         <TypingAnimation
                             cursorStyle="underscore"
@@ -54,7 +65,7 @@ export default function HomeCardFront() {
                                 className="font-medium underline hover:text-foreground/80"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                            > 
+                            >
                                 HK PolyU
                             </PreviewLinkCardTrigger>
                             <PreviewLinkCardContent>
@@ -70,7 +81,7 @@ export default function HomeCardFront() {
                                 className="font-medium underline hover:text-foreground/80"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                            > 
+                            >
                                 The Hong Kong Polytechnic University
                             </PreviewLinkCardTrigger>
                             <PreviewLinkCardContent>
@@ -84,26 +95,12 @@ export default function HomeCardFront() {
                     </HyperText>
 
                     <p className={TEXT_SIZE.meta}>
-                        <span className="font-medium">Now:</span> Building a digital service
-                        marketplace for Filipinos @{" "}
-                        <PreviewLinkCard href="https://hanapp.com.ph/">
-                            <PreviewLinkCardTrigger
-                                className="font-medium underline hover:text-foreground/80"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            > 
-                                Hanapp
-                            </PreviewLinkCardTrigger>
-                            <PreviewLinkCardContent>
-                                <PreviewLinkCardImage alt="Hanapp" />
-                            </PreviewLinkCardContent>
-                        </PreviewLinkCard>
-                        .
+                        <span className="font-medium">Now:</span> Looking for my next destination
                     </p>
                 </>
             }
             bottomLeft={<span className="font-mono uppercase tracking-[0.28em]">Matthew Raymundo</span>}
             bottomRight={<span>v2026.05 · next.js / react</span>}
         />
-    )
+    );
 }
