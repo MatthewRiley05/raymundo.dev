@@ -12,13 +12,13 @@ import { default as SkillsCardBack } from "@/components/cards/skills/SkillsCardB
 import { default as SkillsCardFront } from "@/components/cards/skills/SkillsCardFront";
 import { WorkExperienceBonbonBack, WorkExperienceBonbonFront } from "@/components/cards/work/WorkExperienceBonbon";
 import { WorkExperienceExpBack, WorkExperienceExpFront } from "@/components/cards/work/WorkExperienceExp";
-import { WorkExperienceHanappBack, WorkExperienceHanappFront } from "@/components/cards/work/WorkExperienceHanapp";
 import { ProjectMorphePatchesBack, ProjectMorphePatchesFront } from "./projects/ProjectExperienceMorphePatches";
+import { WorkExperienceTapAwayBack, WorkExperienceTapAwayFront } from "./work/WorkExperienceTapAway";
 
 export function getCards(): StackCard[] {
     return [
         { id: "home", Front: HomeCardFront, Back: HomeCardBack },
-        { id: "work-exp-1", Front: WorkExperienceHanappFront, Back: WorkExperienceHanappBack },
+        { id: "work-exp-1", Front: WorkExperienceTapAwayFront, Back: WorkExperienceTapAwayBack },
         { id: "work-exp-2", Front: WorkExperienceExpFront, Back: WorkExperienceExpBack },
         { id: "work-exp-3", Front: WorkExperienceBonbonFront, Back: WorkExperienceBonbonBack },
         { id: "project-exp-1", Front: ProjectCathayFront, Back: ProjectCathayBack },
