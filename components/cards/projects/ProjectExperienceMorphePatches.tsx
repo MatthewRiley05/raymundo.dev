@@ -11,7 +11,7 @@ export function ProjectMorphePatchesFront() {
             subtitle=""
             date="November 2026"
             location="Hong Kong SAR"
-            tags={[""]}
+            tags={["Android", "Java", "Kotlin", "Decompile", "Patch", "Reverse Engineering"]}
             cardLabel="Project Experience"
         />
     );
@@ -20,7 +20,9 @@ export function ProjectMorphePatchesFront() {
 export function ProjectMorphePatchesBack() {
     return (
         <ExperienceCardBack
-            highlights={[""]}
+            highlights={[
+                "Patched a live wallpaper application to provide compatibility with the latest Android versions, ensuring continued functionality and user experience.",
+            ]}
             images={[
                 {
                     type: "video",
