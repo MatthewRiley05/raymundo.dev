@@ -1,15 +1,19 @@
-import type { StackCard } from "@/components/stack/types"
+import type { StackCard } from "@/components/stack/types";
 
-import { default as HomeCardFront } from "@/components/cards/home/HomeCardFront"
-import { default as HomeCardBack } from "@/components/cards/home/HomeCardBack"
-import { WorkExperienceHanappFront, WorkExperienceHanappBack } from "@/components/cards/work/WorkExperienceHanapp"
-import { WorkExperienceExpFront, WorkExperienceExpBack } from "@/components/cards/work/WorkExperienceExp"
-import { WorkExperienceBonbonFront, WorkExperienceBonbonBack } from "@/components/cards/work/WorkExperienceBonbon"
-import { default as SkillsCardFront } from "@/components/cards/skills/SkillsCardFront"
-import { default as SkillsCardBack } from "@/components/cards/skills/SkillsCardBack"
-import { ProjectCathayFront, ProjectCathayBack } from "@/components/cards/projects/ProjectExperienceCathay"
-import { ProjectGymSagaFront, ProjectGymSagaBack } from "@/components/cards/projects/ProjectExperienceAstra"
-import { ProjectFlavorFlickFront, ProjectFlavorFlickBack } from "@/components/cards/projects/ProjectExperienceFlavorFlick"
+import { default as HomeCardBack } from "@/components/cards/home/HomeCardBack";
+import { default as HomeCardFront } from "@/components/cards/home/HomeCardFront";
+import { ProjectAstraBack, ProjectAstraFront } from "@/components/cards/projects/ProjectExperienceAstra";
+import { ProjectCathayBack, ProjectCathayFront } from "@/components/cards/projects/ProjectExperienceCathay";
+import {
+    ProjectFlavorFlickBack,
+    ProjectFlavorFlickFront,
+} from "@/components/cards/projects/ProjectExperienceFlavorFlick";
+import { default as SkillsCardBack } from "@/components/cards/skills/SkillsCardBack";
+import { default as SkillsCardFront } from "@/components/cards/skills/SkillsCardFront";
+import { WorkExperienceBonbonBack, WorkExperienceBonbonFront } from "@/components/cards/work/WorkExperienceBonbon";
+import { WorkExperienceExpBack, WorkExperienceExpFront } from "@/components/cards/work/WorkExperienceExp";
+import { WorkExperienceHanappBack, WorkExperienceHanappFront } from "@/components/cards/work/WorkExperienceHanapp";
+import { ProjectMorphePatchesBack, ProjectMorphePatchesFront } from "./projects/ProjectExperienceMorphePatches";
 
 export function getCards(): StackCard[] {
     return [
@@ -18,8 +22,9 @@ export function getCards(): StackCard[] {
         { id: "work-exp-2", Front: WorkExperienceExpFront, Back: WorkExperienceExpBack },
         { id: "work-exp-3", Front: WorkExperienceBonbonFront, Back: WorkExperienceBonbonBack },
         { id: "project-exp-1", Front: ProjectCathayFront, Back: ProjectCathayBack },
-        { id: "project-exp-2", Front: ProjectGymSagaFront, Back: ProjectGymSagaBack },
+        { id: "project-exp-2", Front: ProjectAstraFront, Back: ProjectAstraBack },
         { id: "project-exp-3", Front: ProjectFlavorFlickFront, Back: ProjectFlavorFlickBack },
+        { id: "project-exp-4", Front: ProjectMorphePatchesFront, Back: ProjectMorphePatchesBack },
         { id: "skills", Front: SkillsCardFront, Back: SkillsCardBack },
-    ]
+    ];
 }
