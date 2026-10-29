@@ -27,13 +27,41 @@ type Props = {
 
 export default function ExperienceCardBack({ highlights, images = [], cardLabel = "Experience" }: Props) {
     const [open, setOpen] = useState(false)
-    const [orientation, setOrientation] = useState<"landscape" | "portrait">("landscape")
-
     const media = images[0]
 
-    const mediaClassName =
-        "block object-contain cursor-pointer rounded-md " +
-        (orientation === "landscape" ? "max-w-full h-auto max-h-none" : "max-h-full w-auto max-w-none")
+    // Native sizing (not next/image `fill`) keeps the element the exact size of the
+    // visible pixels, so the click target stays tight and taps on the empty space
+    // still reach the card to flip it. `fill` would make the whole cell clickable.
+    const mediaClassName = "block h-auto w-auto max-h-full max-w-full cursor-pointer rounded-md"
+
+    const mediaNode = !media ? null : media.type === "video" ? (
+        <video
+            src={media.src}
+            poster={media.poster}
+            aria-label={media.alt ?? "video"}
+            muted
+            loop
+            autoPlay
+            playsInline
+            preload="metadata"
+            onClick={(e) => {
+                e.stopPropagation()
+                setOpen(true)
+            }}
+            className={mediaClassName}
+        />
+    ) : (
+        // eslint-disable-next-line @next/next/no-img-element -- see mediaClassName note above
+        <img
+            src={media.src}
+            alt={media.alt ?? "screenshot"}
+            onClick={(e) => {
+                e.stopPropagation()
+                setOpen(true)
+            }}
+            className={mediaClassName}
+        />
+    )
 
     return (
         <>
@@ -47,45 +75,9 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
                             ))}
                         </ul>
 
-                        {media && (
+                        {mediaNode && (
                             <div className="relative w-full h-full min-h-0 min-w-0 overflow-hidden">
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    {media.type === "video" ? (
-                                        <video
-                                            src={media.src}
-                                            poster={media.poster}
-                                            aria-label={media.alt ?? "video"}
-                                            muted
-                                            loop
-                                            autoPlay
-                                            playsInline
-                                            preload="metadata"
-                                            onClick={(e) => {
-                                                e.stopPropagation()
-                                                setOpen(true)
-                                            }}
-                                            onLoadedMetadata={(e) => {
-                                                const { videoWidth, videoHeight } = e.currentTarget
-                                                setOrientation(videoWidth > videoHeight ? "landscape" : "portrait")
-                                            }}
-                                            className={mediaClassName}
-                                        />
-                                    ) : (
-                                        <img
-                                            src={media.src}
-                                            alt={media.alt ?? "screenshot"}
-                                            onClick={(e) => {
-                                                e.stopPropagation()
-                                                setOpen(true)
-                                            }}
-                                            className={mediaClassName}
-                                            onLoad={(e) => {
-                                                const { naturalWidth, naturalHeight } = e.currentTarget
-                                                setOrientation(naturalWidth > naturalHeight ? "landscape" : "portrait")
-                                            }}
-                                        />
-                                    )}
-                                </div>
+                                <div className="absolute inset-0 flex items-center justify-center">{mediaNode}</div>
                             </div>
                         )}
                     </div>
