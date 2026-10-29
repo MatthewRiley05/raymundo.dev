@@ -21,7 +21,16 @@ export function ProjectMorphePatchesBack() {
     return (
         <ExperienceCardBack
             highlights={[""]}
-            images={[{ src: "/Gallery/Morphe/Morphe.mp4", alt: "Morphe Patches" }]}
+            images={[
+                {
+                    type: "video",
+                    src: "/Gallery/Morphe/Morphe.mp4",
+                    poster: "/Gallery/Morphe/poster.jpg",
+                    width: 1344,
+                    height: 2992,
+                    alt: "Morphe Patches",
+                },
+            ]}
             cardLabel="Project Experience"
         />
     );
