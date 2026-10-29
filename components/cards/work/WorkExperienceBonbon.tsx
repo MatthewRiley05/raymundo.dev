@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront"
-import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
+import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront";
+import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack";
 
 export function WorkExperienceBonbonFront() {
     return (
@@ -15,7 +15,7 @@ export function WorkExperienceBonbonFront() {
             tags={["Python"]}
             cardLabel="Work Experience"
         />
-    )
+    );
 }
 
 export function WorkExperienceBonbonBack() {
@@ -25,10 +25,8 @@ export function WorkExperienceBonbonBack() {
                 "Programmed embedded software for an educational robot car, linking hardware and interactive logic.",
                 "Designed scalable algorithms for real-time drone coordinates across variable fleet formations.",
             ]}
-            images={[
-                { src: "/Gallery/Bonbon/Drone_Coordinate_System.png", alt: "Drone Coordinate System" },
-            ]}
+            images={[{ src: "/Gallery/Bonbon/Drone_Coordinate_System.png", alt: "Drone Coordinate System" }]}
             cardLabel="Work Experience"
         />
-    )
+    );
 }

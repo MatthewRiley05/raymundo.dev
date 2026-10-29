@@ -1,38 +1,38 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Lightbox from "yet-another-react-lightbox"
-import Video from "yet-another-react-lightbox/plugins/video"
-import "yet-another-react-lightbox/styles.css"
-import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
-import { TEXT_SIZE, STACK_SIZE } from "@/components/stack/cardSpacing"
+import { useState } from "react";
+import Lightbox from "yet-another-react-lightbox";
+import Video from "yet-another-react-lightbox/plugins/video";
+import "yet-another-react-lightbox/styles.css";
+import SimpleCardLayout from "@/components/stack/SimpleCardLayout";
+import { TEXT_SIZE, STACK_SIZE } from "@/components/stack/cardSpacing";
 
 export type Media =
     | { type?: "image"; src: string; alt?: string }
     | {
-          type: "video"
-          src: string
-          alt?: string
+          type: "video";
+          src: string;
+          alt?: string;
           /** Intrinsic size, required by the lightbox video plugin */
-          width: number
-          height: number
-          poster?: string
-      }
+          width: number;
+          height: number;
+          poster?: string;
+      };
 
 type Props = {
-    highlights: string[]
-    images?: Media[]
-    cardLabel?: string
-}
+    highlights: string[];
+    images?: Media[];
+    cardLabel?: string;
+};
 
 export default function ExperienceCardBack({ highlights, images = [], cardLabel = "Experience" }: Props) {
-    const [open, setOpen] = useState(false)
-    const media = images[0]
+    const [open, setOpen] = useState(false);
+    const media = images[0];
 
     // Native sizing (not next/image `fill`) keeps the element the exact size of the
     // visible pixels, so the click target stays tight and taps on the empty space
     // still reach the card to flip it. `fill` would make the whole cell clickable.
-    const mediaClassName = "block h-auto w-auto max-h-full max-w-full cursor-pointer rounded-md"
+    const mediaClassName = "block h-auto w-auto max-h-full max-w-full cursor-pointer rounded-md";
 
     const mediaNode = !media ? null : media.type === "video" ? (
         <video
@@ -45,8 +45,8 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
             playsInline
             preload="none"
             onClick={(e) => {
-                e.stopPropagation()
-                setOpen(true)
+                e.stopPropagation();
+                setOpen(true);
             }}
             className={mediaClassName}
         />
@@ -56,12 +56,12 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
             src={media.src}
             alt={media.alt ?? "screenshot"}
             onClick={(e) => {
-                e.stopPropagation()
-                setOpen(true)
+                e.stopPropagation();
+                setOpen(true);
             }}
             className={mediaClassName}
         />
-    )
+    );
 
     return (
         <>
@@ -100,11 +100,11 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
                                   poster: item.poster,
                                   sources: [{ src: item.src, type: "video/mp4" }],
                               }
-                            : { src: item.src, alt: item.alt }
+                            : { src: item.src, alt: item.alt },
                     )}
                     controller={{ closeOnBackdropClick: true }}
                 />
             </div>
         </>
-    )
+    );
 }

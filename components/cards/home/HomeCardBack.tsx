@@ -1,8 +1,13 @@
-"use client"
+"use client";
 
-import { PreviewLinkCard, PreviewLinkCardContent, PreviewLinkCardImage, PreviewLinkCardTrigger } from "@/components/animate-ui/components/radix/preview-link-card"
-import SimpleCardLayout from "@/components/stack/SimpleCardLayout"
-import { TEXT_SIZE } from "@/components/stack/cardSpacing"
+import {
+    PreviewLinkCard,
+    PreviewLinkCardContent,
+    PreviewLinkCardImage,
+    PreviewLinkCardTrigger,
+} from "@/components/animate-ui/components/radix/preview-link-card";
+import SimpleCardLayout from "@/components/stack/SimpleCardLayout";
+import { TEXT_SIZE } from "@/components/stack/cardSpacing";
 
 export default function HomeCardBack() {
     return (
@@ -19,19 +24,22 @@ export default function HomeCardBack() {
                                 className={TEXT_SIZE.meta + " font-medium underline hover:text-foreground/80"}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                            > 
+                            >
                                 raymundo.dev
                             </PreviewLinkCardTrigger>
                             <PreviewLinkCardContent>
                                 <PreviewLinkCardImage alt="raymundo.dev" />
                             </PreviewLinkCardContent>
-                        </PreviewLinkCard>                        
+                        </PreviewLinkCard>
                     </div>
                     <div>
                         <div className={"font-mono uppercase tracking-[0.22em] leading-none " + TEXT_SIZE.label}>
                             Email
                         </div>
-                        <a href="mailto:matthewrileyraymundo@gmail.com" className={TEXT_SIZE.meta + " font-medium underline hover:text-foreground/80"}>
+                        <a
+                            href="mailto:matthewrileyraymundo@gmail.com"
+                            className={TEXT_SIZE.meta + " font-medium underline hover:text-foreground/80"}
+                        >
                             matthewrileyraymundo@gmail.com
                         </a>
                     </div>
@@ -40,7 +48,10 @@ export default function HomeCardBack() {
                         <div className={"font-mono uppercase tracking-[0.22em] leading-none " + TEXT_SIZE.label}>
                             Phone
                         </div>
-                        <a href="tel:+85256056737" className={TEXT_SIZE.meta + " font-medium underline hover:text-foreground/80"}>
+                        <a
+                            href="tel:+85256056737"
+                            className={TEXT_SIZE.meta + " font-medium underline hover:text-foreground/80"}
+                        >
                             +852 5605 6737
                         </a>
                     </div>
@@ -49,23 +60,33 @@ export default function HomeCardBack() {
                         <div className={"font-mono uppercase tracking-[0.22em] leading-none " + TEXT_SIZE.label}>
                             Links
                         </div>
-                        <ul className={TEXT_SIZE.meta + " list-disc pl-5 space-y-0 font-medium underline hover:text-foreground/80"}>
+                        <ul
+                            className={
+                                TEXT_SIZE.meta +
+                                " list-disc pl-5 space-y-0 font-medium underline hover:text-foreground/80"
+                            }
+                        >
                             <li>
                                 <PreviewLinkCard href="https://github.com/MatthewRiley05">
                                     <PreviewLinkCardTrigger
                                         className={TEXT_SIZE.meta + " font-medium underline hover:text-foreground/80"}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                    > 
+                                    >
                                         GitHub
                                     </PreviewLinkCardTrigger>
                                     <PreviewLinkCardContent>
                                         <PreviewLinkCardImage alt="GitHub - Matthew Raymundo" />
                                     </PreviewLinkCardContent>
-                                </PreviewLinkCard> 
+                                </PreviewLinkCard>
                             </li>
                             <li>
-                                <a className="" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+                                <a
+                                    className=""
+                                    href="https://www.linkedin.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     LinkedIn
                                 </a>
                             </li>
@@ -76,5 +97,5 @@ export default function HomeCardBack() {
             bottomLeft={<span className="font-mono uppercase tracking-[0.28em]">Matthew Raymundo</span>}
             bottomRight={<span>Back side</span>}
         />
-    )
+    );
 }

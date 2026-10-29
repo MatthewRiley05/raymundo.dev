@@ -21,7 +21,7 @@ export default function DockNavigation() {
             className="fixed bottom-20 left-0 right-0 flex justify-center pointer-events-auto z-50"
         >
             <Dock direction="middle">
-                {NAV_ITEMS.map(item => (
+                {NAV_ITEMS.map((item) => (
                     <DockIcon key={item.label}>
                         <button
                             onClick={() => navigateTo(item.index)}

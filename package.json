@@ -1,41 +1,44 @@
 {
-  "name": "raymundo.dev",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "@radix-ui/react-slot": "^1.2.4",
-    "@react-three/fiber": "^9.4.2",
-    "@react-three/postprocessing": "^3.0.4",
-    "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "motion": "^12.40.0",
-    "next": "^16.1.0",
-    "postprocessing": "^6.38.2",
-    "radix-ui": "^1.5.0",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "react-icons": "^5.6.0",
-    "react-parallax-tilt": "^1.7.314",
-    "tailwind-merge": "^3.4.0",
-    "three": "^0.168.0",
-    "yet-another-react-lightbox": "^3.32.0"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "^16.1.0",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  }
+    "name": "raymundo.dev",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "eslint",
+        "format": "prettier --write .",
+        "format:check": "prettier --check ."
+    },
+    "dependencies": {
+        "@radix-ui/react-slot": "^1.2.4",
+        "@react-three/fiber": "^9.4.2",
+        "@react-three/postprocessing": "^3.0.4",
+        "@vercel/analytics": "^1.5.0",
+        "@vercel/speed-insights": "^1.2.0",
+        "class-variance-authority": "^0.7.1",
+        "clsx": "^2.1.1",
+        "motion": "^12.40.0",
+        "next": "^16.1.0",
+        "postprocessing": "^6.38.2",
+        "radix-ui": "^1.5.0",
+        "react": "19.2.0",
+        "react-dom": "19.2.0",
+        "react-icons": "^5.6.0",
+        "react-parallax-tilt": "^1.7.314",
+        "tailwind-merge": "^3.4.0",
+        "three": "^0.168.0",
+        "yet-another-react-lightbox": "^3.32.0"
+    },
+    "devDependencies": {
+        "@tailwindcss/postcss": "^4",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "^16.1.0",
+        "prettier": "^3.9.10",
+        "tailwindcss": "^4",
+        "typescript": "^5"
+    }
 }

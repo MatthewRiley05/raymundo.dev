@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront"
-import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
+import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront";
+import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack";
 
 export function ProjectCathayFront() {
     return (
@@ -14,7 +14,7 @@ export function ProjectCathayFront() {
             tags={["React"]}
             cardLabel="Project Experience"
         />
-    )
+    );
 }
 
 export function ProjectCathayBack() {
@@ -22,12 +22,10 @@ export function ProjectCathayBack() {
         <ExperienceCardBack
             highlights={[
                 "Built an OCR-based solution to recover damaged shipping-label barcodes during a 24-hour, software-focused hackathon.",
-                "Team-based, online event; explored mobile-first flows and alternatives within the competition constraints."
+                "Team-based, online event; explored mobile-first flows and alternatives within the competition constraints.",
             ]}
-            images={[
-                { src: "/Gallery/Cathay/CargoVision_Scanner.png", alt: "CargoVision scanner" },
-            ]}
+            images={[{ src: "/Gallery/Cathay/CargoVision_Scanner.png", alt: "CargoVision scanner" }]}
             cardLabel="Project Experience"
         />
-    )
+    );
 }

@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront"
-import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack"
+import ExperienceCardFront from "@/components/cards/templates/ExperienceCardFront";
+import ExperienceCardBack from "@/components/cards/templates/ExperienceCardBack";
 
 export function WorkExperienceExpFront() {
     return (
@@ -15,7 +15,7 @@ export function WorkExperienceExpFront() {
             tags={["Flutter", "Dart"]}
             cardLabel="Work Experience"
         />
-    )
+    );
 }
 
 export function WorkExperienceExpBack() {
@@ -37,5 +37,5 @@ export function WorkExperienceExpBack() {
             ]}
             cardLabel="Work Experience"
         />
-    )
+    );
 }
