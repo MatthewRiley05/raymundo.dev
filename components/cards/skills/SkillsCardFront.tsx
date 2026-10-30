@@ -76,30 +76,30 @@ export default function SkillsCardFront() {
         <SimpleCardLayout
             title="Skills"
             body={
-                <div className="space-y-[clamp(0.1875rem,0rem+0.5vw,0.75rem)]">
+                <div className="flex flex-1 flex-col justify-between gap-3.5 sm:block sm:space-y-[clamp(0.1875rem,0rem+0.5vw,0.75rem)]">
                     {categories.map((cat) => (
                         <div key={cat.label}>
-                            <h3 className="text-[clamp(0.4375rem,0.35rem+0.375vw,0.75rem)] font-semibold text-muted-foreground uppercase tracking-wider mb-0.5">
+                            <h3 className="text-[0.6875rem] font-semibold text-muted-foreground uppercase tracking-wider mb-1 sm:text-[clamp(0.4375rem,0.35rem+0.375vw,0.75rem)] sm:mb-0.5">
                                 {cat.label}
                             </h3>
-                            <div className="flex flex-wrap gap-[clamp(0.625rem,0.3rem+1.25vw,1.5rem)]">
+                            <div className="flex flex-wrap gap-x-3.5 gap-y-2 sm:gap-[clamp(0.625rem,0.3rem+1.25vw,1.5rem)]">
                                 {cat.skills.map((skill) => (
                                     <div
                                         key={skill.name}
-                                        className="flex flex-col items-center gap-0."
+                                        className="flex flex-col items-center gap-1 sm:gap-0"
                                         title={skill.name}
                                     >
                                         {skill.icon ? (
                                             <skill.icon
-                                                className="w-[clamp(0.75rem,0.35rem+1.25vw,1.75rem)] h-[clamp(0.75rem,0.35rem+1.25vw,1.75rem)] sm:transition-transform sm:hover:scale-110"
+                                                className="w-7 h-7 max-[400px]:w-[1.625rem] max-[400px]:h-[1.625rem] sm:w-[clamp(0.75rem,0.35rem+1.25vw,1.75rem)] sm:h-[clamp(0.75rem,0.35rem+1.25vw,1.75rem)] sm:transition-transform sm:hover:scale-110"
                                                 color={skill.color}
                                             />
                                         ) : (
-                                            <span className="text-[clamp(0.4375rem,0.35rem+0.6vw,1rem)] leading-none transition-transform hover:scale-110">
+                                            <span className="text-[1.125rem] leading-none transition-transform hover:scale-110 sm:text-[clamp(0.4375rem,0.35rem+0.6vw,1rem)]">
                                                 {"flag" in skill ? skill.flag : skill.name}
                                             </span>
                                         )}
-                                        <span className="text-[clamp(0.375rem,0.1875rem+0.25vw,0.625rem)] text-muted-foreground text-center leading-tight">
+                                        <span className="text-[0.625rem] max-[360px]:text-[0.5625rem] text-muted-foreground text-center leading-tight sm:text-[clamp(0.375rem,0.1875rem+0.25vw,0.625rem)]">
                                             {skill.name}
                                         </span>
                                     </div>

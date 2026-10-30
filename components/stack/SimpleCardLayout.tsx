@@ -19,12 +19,10 @@ export default function SimpleCardLayout({ title, header, body, bottomLeft, bott
     return (
         <CardShell className={className}>
             {header ? (
-                <CardHeader className={CARD_PX + " px-6 sm:px-7 md:px-8 lg:px-9 xl:px-10 2xl:px-11"}>
-                    {header}
-                </CardHeader>
+                <CardHeader className={CARD_PX}>{header}</CardHeader>
             ) : (
-                <CardHeader className={cn(CARD_PX, "items-center px-6 sm:px-7 md:px-8 lg:px-9 xl:px-10 2xl:px-11")}>
-                    <CardTitle className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
+                <CardHeader className={cn(CARD_PX, "items-center")}>
+                    <CardTitle className="text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
                         {title}
                     </CardTitle>
                 </CardHeader>

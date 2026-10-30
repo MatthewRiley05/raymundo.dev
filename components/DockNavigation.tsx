@@ -18,7 +18,7 @@ export default function DockNavigation() {
     return (
         <nav
             aria-label="Section Navigation"
-            className="fixed bottom-20 left-0 right-0 flex justify-center pointer-events-auto z-50"
+            className="fixed bottom-6 left-0 right-0 flex justify-center pointer-events-auto z-50 sm:bottom-20"
         >
             <Dock direction="middle">
                 {NAV_ITEMS.map((item) => (

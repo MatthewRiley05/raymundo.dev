@@ -2,6 +2,7 @@
 
 import SimpleCardLayout from "@/components/stack/SimpleCardLayout";
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { TEXT_SIZE, LOGO_SIZE } from "@/components/stack/cardSpacing";
@@ -33,10 +34,33 @@ export default function ExperienceCardFront({
     tags = [],
     cardLabel = "Experience",
 }: Props) {
+    const details: { label: string; value: ReactNode }[] = [
+        { label: "Role", value: subtitle },
+        { label: "Period", value: date },
+        { label: "Based", value: location },
+        {
+            label: "Stack",
+            value:
+                tags.length > 0 ? (
+                    <span className="flex flex-wrap gap-1.5">
+                        {tags.map((tag) => (
+                            <Badge key={tag} variant="secondary" className="px-1.5 py-0 text-[0.75rem]">
+                                {tag}
+                            </Badge>
+                        ))}
+                    </span>
+                ) : null,
+        },
+    ].filter((row) => Boolean(row.value));
+
     return (
         <SimpleCardLayout
             header={
-                <div className={"flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 2xl:gap-8"}>
+                <div
+                    className={
+                        "flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 2xl:gap-8"
+                    }
+                >
                     {logo && (
                         <div className={LOGO_SIZE + " relative shrink-0"}>
                             <Image
@@ -51,7 +75,7 @@ export default function ExperienceCardFront({
                     {link ? (
                         <PreviewLinkCard href={link}>
                             <PreviewLinkCardTrigger
-                                className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight hover:underline leading-none font-semibold"
+                                className="text-[1.625rem] max-[360px]:text-2xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight hover:underline font-semibold"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -62,29 +86,48 @@ export default function ExperienceCardFront({
                             </PreviewLinkCardContent>
                         </PreviewLinkCard>
                     ) : (
-                        <CardTitle className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
+                        <CardTitle className="text-[1.625rem] max-[360px]:text-2xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight">
                             {title}
                         </CardTitle>
                     )}
                 </div>
             }
             body={
-                <div className="space-y-1 sm:space-y-2 md:space-y-3">
-                    <div className={TEXT_SIZE.meta + " font-medium"}>{subtitle}</div>
-                    <div className={"font-mono uppercase tracking-[0.22em] text-muted-foreground " + TEXT_SIZE.small}>
-                        {date}
-                        {location ? ` | ${location}` : ""}
-                    </div>
-                    {tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2 pt-1">
-                            {tags.map((tag) => (
-                                <Badge key={tag} variant="secondary" className={TEXT_SIZE.small}>
-                                    {tag}
-                                </Badge>
-                            ))}
+                <>
+                    <dl className="flex flex-1 flex-col justify-between divide-y divide-border/60 border-t border-border/60 sm:hidden">
+                        {details.map(({ label, value }) => (
+                            <div
+                                key={label}
+                                className="grid min-h-fit flex-1 grid-cols-[4.25rem_1fr] items-center gap-3 py-1.5"
+                            >
+                                <dt className="font-mono uppercase tracking-[0.16em] text-muted-foreground text-[0.6875rem]">
+                                    {label}
+                                </dt>
+                                <dd className="text-[0.9375rem] leading-snug">{value}</dd>
+                            </div>
+                        ))}
+                    </dl>
+                    <div className="hidden sm:block sm:space-y-2 md:space-y-3">
+                        <div className={TEXT_SIZE.frontBody + " font-medium"}>{subtitle}</div>
+                        <div
+                            className={
+                                "font-mono uppercase tracking-[0.22em] text-muted-foreground " + TEXT_SIZE.frontSmall
+                            }
+                        >
+                            {date}
+                            {location ? ` | ${location}` : ""}
                         </div>
-                    )}
-                </div>
+                        {tags.length > 0 && (
+                            <div className="flex flex-wrap gap-2 pt-1">
+                                {tags.map((tag) => (
+                                    <Badge key={tag} variant="secondary" className={TEXT_SIZE.frontSmall}>
+                                        {tag}
+                                    </Badge>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </>
             }
             bottomLeft={<span className="font-mono uppercase tracking-[0.28em]">{cardLabel}</span>}
             bottomRight={<span>Front</span>}
