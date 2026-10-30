@@ -69,7 +69,7 @@ export default function ExperienceCardFront({
                 </div>
             }
             body={
-                <div className="flex flex-1 flex-col justify-around sm:block sm:space-y-2 md:space-y-3">
+                <div className="flex flex-1 flex-col justify-center gap-6 sm:block sm:space-y-2 md:space-y-3">
                     <div className={TEXT_SIZE.frontBody + " font-medium"}>{subtitle}</div>
                     <div
                         className={

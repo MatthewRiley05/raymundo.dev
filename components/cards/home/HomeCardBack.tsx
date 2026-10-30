@@ -14,7 +14,7 @@ export default function HomeCardBack() {
         <SimpleCardLayout
             title="Contact"
             body={
-                <div className="flex flex-1 flex-col justify-around sm:justify-start sm:gap-2.5 md:gap-3.5 lg:gap-4.5">
+                <div className="flex flex-1 flex-col justify-center gap-5 sm:justify-start sm:gap-2.5 md:gap-3.5 lg:gap-4.5">
                     <div>
                         <div className={"font-mono uppercase tracking-[0.22em] leading-none " + TEXT_SIZE.label}>
                             Website

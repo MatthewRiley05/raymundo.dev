@@ -41,7 +41,7 @@ export default function HomeCardFront() {
                 </div>
             }
             body={
-                <div className="flex flex-1 flex-col justify-around sm:justify-start sm:gap-[clamp(0.5rem,-0.1rem+1.5vw,1.5rem)]">
+                <div className="flex flex-1 flex-col justify-center gap-6 sm:justify-start sm:gap-[clamp(0.5rem,-0.1rem+1.5vw,1.5rem)]">
                     <span
                         className={
                             "relative pl-6 " +
