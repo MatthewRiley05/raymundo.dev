@@ -30,7 +30,7 @@ export default function HomeCardFront() {
                     />
 
                     <div className="flex flex-col gap-1 text-left">
-                        <span className="text-2xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl leading-tight font-semibold">
+                        <span className="text-2xl max-[360px]:text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl leading-tight font-semibold">
                             Matthew Riley Chun Raymundo
                         </span>
 

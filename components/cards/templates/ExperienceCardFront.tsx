@@ -51,7 +51,7 @@ export default function ExperienceCardFront({
                     {link ? (
                         <PreviewLinkCard href={link}>
                             <PreviewLinkCardTrigger
-                                className="text-2xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight hover:underline leading-none font-semibold"
+                                className="text-2xl max-[360px]:text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight hover:underline leading-none font-semibold"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -62,7 +62,7 @@ export default function ExperienceCardFront({
                             </PreviewLinkCardContent>
                         </PreviewLinkCard>
                     ) : (
-                        <CardTitle className="text-2xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight">
+                        <CardTitle className="text-2xl max-[360px]:text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight">
                             {title}
                         </CardTitle>
                     )}

@@ -1,5 +1,5 @@
 export const CARD_PX = "px-4 sm:px-6 md:px-8 lg:px-9 xl:px-10 2xl:px-11";
-export const CARD_GAP = "gap-4 sm:gap-1.5 md:gap-2 lg:gap-3 xl:gap-4 2xl:gap-5";
+export const CARD_GAP = "gap-6 sm:gap-1.5 md:gap-2 lg:gap-3 xl:gap-4 2xl:gap-5";
 export const CARD_FOOTER =
     "border-t border-border/60 flex w-full items-center justify-between gap-3 !py-[clamp(0.5rem,0.3rem+0.75vw,2.5rem)]";
 export const CARD_TEXT_META = "text-[clamp(0.625rem,0.55rem+0.125vw,0.75rem)]";
