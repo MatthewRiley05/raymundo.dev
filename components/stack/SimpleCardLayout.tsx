@@ -22,7 +22,7 @@ export default function SimpleCardLayout({ title, header, body, bottomLeft, bott
                 <CardHeader className={CARD_PX}>{header}</CardHeader>
             ) : (
                 <CardHeader className={cn(CARD_PX, "items-center")}>
-                    <CardTitle className="text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
+                    <CardTitle className="text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-tight">
                         {title}
                     </CardTitle>
                 </CardHeader>

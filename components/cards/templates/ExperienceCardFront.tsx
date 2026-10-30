@@ -38,7 +38,7 @@ export default function ExperienceCardFront({
             header={
                 <div
                     className={
-                        "flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 2xl:gap-8"
+                        "flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 2xl:gap-8"
                     }
                 >
                     {logo && (
@@ -55,7 +55,7 @@ export default function ExperienceCardFront({
                     {link ? (
                         <PreviewLinkCard href={link}>
                             <PreviewLinkCardTrigger
-                                className="text-[1.75rem] max-[360px]:text-2xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight hover:underline font-semibold"
+                                className="text-[1.625rem] max-[360px]:text-2xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight hover:underline font-semibold"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -66,7 +66,7 @@ export default function ExperienceCardFront({
                             </PreviewLinkCardContent>
                         </PreviewLinkCard>
                     ) : (
-                        <CardTitle className="text-[1.75rem] max-[360px]:text-2xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight">
+                        <CardTitle className="text-[1.625rem] max-[360px]:text-2xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight">
                             {title}
                         </CardTitle>
                     )}
@@ -85,7 +85,7 @@ export default function ExperienceCardFront({
                             .map(([label, value]) => (
                                 <div
                                     key={label}
-                                    className="grid min-h-fit flex-1 grid-cols-[4.25rem_1fr] items-center gap-3 py-2"
+                                    className="grid min-h-fit flex-1 grid-cols-[4.25rem_1fr] items-center gap-3 py-1.5"
                                 >
                                     <dt className="font-mono uppercase tracking-[0.16em] text-muted-foreground text-[0.6875rem]">
                                         {label}

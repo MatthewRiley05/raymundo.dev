@@ -77,7 +77,7 @@ export default function ExperienceCardBack({ highlights, images = [], cardLabel 
                         </ul>
 
                         {mediaNode && (
-                            <div className="relative w-full min-w-0 flex-1 min-h-16 overflow-hidden max-[360px]:min-h-10 sm:h-full sm:min-h-0">
+                            <div className="relative w-full min-w-0 flex-1 min-h-10 overflow-hidden sm:h-full sm:min-h-0">
                                 <div className="absolute inset-0 flex items-center justify-center">{mediaNode}</div>
                             </div>
                         )}
