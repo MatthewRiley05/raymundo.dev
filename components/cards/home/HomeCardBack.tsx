@@ -12,10 +12,9 @@ import { TEXT_SIZE } from "@/components/stack/cardSpacing";
 export default function HomeCardBack() {
     return (
         <SimpleCardLayout
-            centered
             title="Contact"
             body={
-                <div className="flex flex-col gap-1 sm:gap-2.5 md:gap-3.5 lg:gap-4.5">
+                <div className="flex flex-1 flex-col justify-around sm:justify-start sm:gap-2.5 md:gap-3.5 lg:gap-4.5">
                     <div>
                         <div className={"font-mono uppercase tracking-[0.22em] leading-none " + TEXT_SIZE.label}>
                             Website

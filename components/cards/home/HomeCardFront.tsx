@@ -16,7 +16,6 @@ import Image from "next/image";
 export default function HomeCardFront() {
     return (
         <SimpleCardLayout
-            centered
             header={
                 <div className="flex flex-row items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8">
                     <Image
@@ -31,7 +30,7 @@ export default function HomeCardFront() {
                     />
 
                     <div className="flex flex-col gap-1 text-left">
-                        <span className="text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl leading-tight font-semibold">
+                        <span className="text-2xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-3xl leading-tight font-semibold">
                             Matthew Riley Chun Raymundo
                         </span>
 
@@ -42,7 +41,7 @@ export default function HomeCardFront() {
                 </div>
             }
             body={
-                <div className="flex flex-col gap-8 sm:gap-[clamp(0.5rem,-0.1rem+1.5vw,1.5rem)]">
+                <div className="flex flex-1 flex-col justify-around sm:justify-start sm:gap-[clamp(0.5rem,-0.1rem+1.5vw,1.5rem)]">
                     <span
                         className={
                             "relative pl-6 " +

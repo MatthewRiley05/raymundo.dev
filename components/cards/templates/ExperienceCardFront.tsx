@@ -35,7 +35,6 @@ export default function ExperienceCardFront({
 }: Props) {
     return (
         <SimpleCardLayout
-            centered
             header={
                 <div className={"flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-7 2xl:gap-8"}>
                     {logo && (
@@ -52,7 +51,7 @@ export default function ExperienceCardFront({
                     {link ? (
                         <PreviewLinkCard href={link}>
                             <PreviewLinkCardTrigger
-                                className="text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight hover:underline leading-none font-semibold"
+                                className="text-2xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight hover:underline leading-none font-semibold"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -63,22 +62,27 @@ export default function ExperienceCardFront({
                             </PreviewLinkCardContent>
                         </PreviewLinkCard>
                     ) : (
-                        <CardTitle className="text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight">
+                        <CardTitle className="text-2xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl leading-tight">
                             {title}
                         </CardTitle>
                     )}
                 </div>
             }
             body={
-                <div className="space-y-5 sm:space-y-2 md:space-y-3">
+                <div className="flex flex-1 flex-col justify-around sm:block sm:space-y-2 md:space-y-3">
                     <div className={TEXT_SIZE.frontBody + " font-medium"}>{subtitle}</div>
                     <div
                         className={
                             "font-mono uppercase tracking-[0.22em] text-muted-foreground " + TEXT_SIZE.frontSmall
                         }
                     >
-                        {date}
-                        {location ? ` | ${location}` : ""}
+                        <span className="block sm:inline">{date}</span>
+                        {location && (
+                            <>
+                                <span className="hidden sm:inline"> | </span>
+                                <span className="block sm:inline">{location}</span>
+                            </>
+                        )}
                     </div>
                     {tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 pt-3 sm:pt-1">
