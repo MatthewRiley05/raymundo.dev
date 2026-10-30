@@ -3,7 +3,7 @@ export const CARD_GAP = "gap-6 sm:gap-1.5 md:gap-2 lg:gap-3 xl:gap-4 2xl:gap-5";
 export const CARD_FOOTER =
     "border-t border-border/60 flex w-full items-center justify-between gap-3 !py-[clamp(0.5rem,0.3rem+0.75vw,2.5rem)]";
 export const CARD_TEXT_META = "text-[clamp(0.625rem,0.55rem+0.125vw,0.75rem)]";
-export const LOGO_SIZE = "w-14 h-14 sm:w-[clamp(3rem,0.5rem+5vw,6rem)] sm:h-[clamp(3rem,1.4rem+4vw,6rem)]";
+export const LOGO_SIZE = "w-[4.5rem] h-[4.5rem] sm:w-[clamp(3rem,0.5rem+5vw,6rem)] sm:h-[clamp(3rem,1.4rem+4vw,6rem)]";
 
 export const TEXT_SIZE = {
     body: "text-[clamp(0.75rem,0.3rem+0.9vw,1rem)] sm:text-[clamp(0.6875rem,0.4rem+0.5vw,1rem)]",
@@ -12,8 +12,8 @@ export const TEXT_SIZE = {
     label: "text-[clamp(0.625rem,0.25rem+0.35vw,0.75rem)]",
     // Front faces are portrait on phones, so they can afford larger copy than the
     // dense back face. Values from `sm` up match the original desktop scale.
-    frontBody: "text-sm sm:text-[clamp(0.6875rem,0.4rem+0.3vw,0.75rem)]",
-    frontSmall: "text-xs sm:text-[clamp(0.625rem,0.45rem+0.15vw,0.75rem)]",
+    frontBody: "text-[1.0625rem] leading-snug sm:text-[clamp(0.6875rem,0.4rem+0.3vw,0.75rem)] sm:leading-normal",
+    frontSmall: "text-[0.8125rem] sm:text-[clamp(0.625rem,0.45rem+0.15vw,0.75rem)]",
 } as const;
 
 export const GAP_SIZE = {
