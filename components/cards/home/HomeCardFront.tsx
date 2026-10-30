@@ -45,7 +45,7 @@ export default function HomeCardFront() {
                     <span
                         className={
                             "relative pl-6 " +
-                            TEXT_SIZE.frontBody +
+                            TEXT_SIZE.homeBody +
                             " before:content-['//'] before:absolute before:left-0 before:text-muted-foreground"
                         }
                     >
@@ -59,7 +59,7 @@ export default function HomeCardFront() {
                         />
                     </span>
 
-                    <p className={TEXT_SIZE.frontBody + " lg:hidden"}>
+                    <p className={TEXT_SIZE.homeBody + " lg:hidden"}>
                         BSc (Hons) Fintech &amp; AI @{" "}
                         <PreviewLinkCard href="https://www.polyu.edu.hk/en/">
                             <PreviewLinkCardTrigger
@@ -75,7 +75,7 @@ export default function HomeCardFront() {
                         </PreviewLinkCard>
                     </p>
 
-                    <p className={TEXT_SIZE.frontBody + " hidden lg:block"}>
+                    <p className={TEXT_SIZE.homeBody + " hidden lg:block"}>
                         BSc (Hons) Financial Technology &amp; Artificial Intelligence @{" "}
                         <PreviewLinkCard href="https://www.polyu.edu.hk/en/">
                             <PreviewLinkCardTrigger
@@ -91,11 +91,11 @@ export default function HomeCardFront() {
                         </PreviewLinkCard>
                     </p>
 
-                    <HyperText className={"self-start inline-block " + TEXT_SIZE.frontBody + " py-0 overflow-hidden"}>
+                    <HyperText className={"self-start inline-block " + TEXT_SIZE.homeBody + " py-0 overflow-hidden"}>
                         HKG ⇄ MNL
                     </HyperText>
 
-                    <p className={TEXT_SIZE.frontBody}>
+                    <p className={TEXT_SIZE.homeBody}>
                         <span className="font-medium">Now:</span> Looking for my next destination
                     </p>
                 </div>

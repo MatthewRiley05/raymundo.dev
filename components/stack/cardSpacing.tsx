@@ -14,6 +14,9 @@ export const TEXT_SIZE = {
     // dense back face. Values from `sm` up match the original desktop scale.
     frontBody: "text-[1.0625rem] leading-snug sm:text-[clamp(0.6875rem,0.4rem+0.3vw,0.75rem)] sm:leading-normal",
     frontSmall: "text-[0.8125rem] sm:text-[clamp(0.625rem,0.45rem+0.15vw,0.75rem)]",
+    // Home copy sits on a single long line, so it runs one step smaller on phones
+    // to keep "mobile" on the same line as "web" and "AI".
+    homeBody: "text-[1rem] leading-snug sm:text-[clamp(0.6875rem,0.4rem+0.3vw,0.75rem)] sm:leading-normal",
 } as const;
 
 export const GAP_SIZE = {
