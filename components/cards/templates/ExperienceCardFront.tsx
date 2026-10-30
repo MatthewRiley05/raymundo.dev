@@ -2,6 +2,7 @@
 
 import SimpleCardLayout from "@/components/stack/SimpleCardLayout";
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { TEXT_SIZE, LOGO_SIZE } from "@/components/stack/cardSpacing";
@@ -33,6 +34,25 @@ export default function ExperienceCardFront({
     tags = [],
     cardLabel = "Experience",
 }: Props) {
+    const details: { label: string; value: ReactNode }[] = [
+        { label: "Role", value: subtitle },
+        { label: "Period", value: date },
+        { label: "Based", value: location },
+        {
+            label: "Stack",
+            value:
+                tags.length > 0 ? (
+                    <span className="flex flex-wrap gap-1.5">
+                        {tags.map((tag) => (
+                            <Badge key={tag} variant="secondary" className="px-1.5 py-0 text-[0.75rem]">
+                                {tag}
+                            </Badge>
+                        ))}
+                    </span>
+                ) : null,
+        },
+    ].filter((row) => Boolean(row.value));
+
     return (
         <SimpleCardLayout
             header={
@@ -75,24 +95,17 @@ export default function ExperienceCardFront({
             body={
                 <>
                     <dl className="flex flex-1 flex-col justify-between divide-y divide-border/60 border-t border-border/60 sm:hidden">
-                        {[
-                            ["Role", subtitle],
-                            ["Period", date],
-                            ["Based", location],
-                            ["Stack", tags.join(" · ")],
-                        ]
-                            .filter(([, value]) => Boolean(value))
-                            .map(([label, value]) => (
-                                <div
-                                    key={label}
-                                    className="grid min-h-fit flex-1 grid-cols-[4.25rem_1fr] items-center gap-3 py-1.5"
-                                >
-                                    <dt className="font-mono uppercase tracking-[0.16em] text-muted-foreground text-[0.6875rem]">
-                                        {label}
-                                    </dt>
-                                    <dd className="text-[0.9375rem] leading-snug">{value}</dd>
-                                </div>
-                            ))}
+                        {details.map(({ label, value }) => (
+                            <div
+                                key={label}
+                                className="grid min-h-fit flex-1 grid-cols-[4.25rem_1fr] items-center gap-3 py-1.5"
+                            >
+                                <dt className="font-mono uppercase tracking-[0.16em] text-muted-foreground text-[0.6875rem]">
+                                    {label}
+                                </dt>
+                                <dd className="text-[0.9375rem] leading-snug">{value}</dd>
+                            </div>
+                        ))}
                     </dl>
                     <div className="hidden sm:block sm:space-y-2 md:space-y-3">
                         <div className={TEXT_SIZE.frontBody + " font-medium"}>{subtitle}</div>
