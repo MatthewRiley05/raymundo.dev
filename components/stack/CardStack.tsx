@@ -46,6 +46,11 @@ export default function CardStack({
     const swipeVersionRef = useRef(0);
     const [frameW, setFrameW] = useState(1000);
     const prevActiveIndex = useRef<number | undefined>(undefined);
+    const flippedRef = useRef(flipped);
+
+    useEffect(() => {
+        flippedRef.current = flipped;
+    }, [flipped]);
 
     const navigateToCard = useCallback(
         (index: number) => {
@@ -98,31 +103,65 @@ export default function CardStack({
 
     const dragControls = useDragControls();
 
-    const startSwipe = (dir: 1 | -1, wasFlipped: boolean) => {
-        const top = order[0];
-        if (!top) return;
+    const startSwipe = useCallback(
+        (dir: 1 | -1, wasFlipped: boolean) => {
+            const top = order[0];
+            if (!top) return;
 
-        swipeVersionRef.current += 1;
-        const fromX = x.get();
+            swipeVersionRef.current += 1;
+            const fromX = x.get();
 
-        if (swipedRef.current) {
-            const old = swipedRef.current;
-            setOrder((prev) => {
-                const withoutOld = prev.filter((c) => c.id !== old.card.id);
-                return [...withoutOld, old.card];
-            });
-        }
+            if (swipedRef.current) {
+                const old = swipedRef.current;
+                setOrder((prev) => {
+                    const withoutOld = prev.filter((c) => c.id !== old.card.id);
+                    return [...withoutOld, old.card];
+                });
+            }
 
-        setOrder((prev) => prev.slice(1));
+            setOrder((prev) => prev.slice(1));
 
-        const next = { card: top, dir, fromX, wasFlipped, version: swipeVersionRef.current };
-        swipedRef.current = next;
-        setSwiped(next);
-        setStage("exit");
-        setFlipped(false);
-        setIsDragging(false);
-        x.set(0);
-    };
+            const next = { card: top, dir, fromX, wasFlipped, version: swipeVersionRef.current };
+            swipedRef.current = next;
+            setSwiped(next);
+            setStage("exit");
+            setFlipped(false);
+            setIsDragging(false);
+            x.set(0);
+        },
+        [order, x],
+    );
+
+    // Keyboard: left/right arrows swipe the top card, Space flips it.
+    useEffect(() => {
+        const onKeyDown = (e: KeyboardEvent) => {
+            if (e.defaultPrevented || e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
+
+            const target = e.target instanceof HTMLElement ? e.target : null;
+            if (target?.closest('input, textarea, select, [contenteditable="true"]')) return;
+
+            const top = order[0];
+            if (!top) return;
+
+            if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+                if (startPtRef.current) return;
+                e.preventDefault();
+                startSwipe(e.key === "ArrowRight" ? 1 : -1, flippedRef.current);
+                return;
+            }
+
+            if (e.key === " " && top.Back) {
+                // Let focused controls (dock, links, the card itself) handle Space.
+                if (target?.closest('a, button, [role="button"], [role="link"]')) return;
+                if (swipedRef.current) return;
+                e.preventDefault();
+                setFlipped((v) => !v);
+            }
+        };
+
+        window.addEventListener("keydown", onKeyDown);
+        return () => window.removeEventListener("keydown", onKeyDown);
+    }, [order, startSwipe]);
 
     const finishEnter = () => {
         const card = swipedRef.current;
